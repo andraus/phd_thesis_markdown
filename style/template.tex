@@ -31,7 +31,6 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -114,7 +113,6 @@ $endif$
   \usepackage[unicode=true]{hyperref}
 \fi
 \hypersetup{breaklinks=true,
-            bookmarks=true,
             pdfauthor={$author-meta$},
             pdftitle={$title-meta$},
             colorlinks=true,
