@@ -1,5 +1,4 @@
 <!-- Latex -->
-
 \begin{titlepage}
     \begin{center}
 
@@ -10,12 +9,12 @@
         \vspace*{2.5cm}
         
         \huge
-        This is the title of the thesis
+        \metatitle\\
         
         \vspace{1.5cm}
         
         \Large
-        Firstname Surname
+        \metaauthor\\
 
         \vspace{1.5cm}
 

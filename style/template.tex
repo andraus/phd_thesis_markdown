@@ -151,21 +151,22 @@ $if(lang)$
 \fi
 $endif$
 
-$if(title)$
-\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
 \date{$date$}
 $for(header-includes)$
 $header-includes$
 $endfor$
 
-\begin{document}
-$if(title)$
-\maketitle
+
+%% Meta data -> latex commands
+$if(author-meta)$
+\newcommand{\metaauthor}{$author-meta$}
 $endif$
+
+$if(title-meta)$
+\newcommand{\metatitle}{$title-meta$}
+$endif$
+
+\begin{document}
 $if(abstract)$
 \begin{abstract}
 $abstract$
