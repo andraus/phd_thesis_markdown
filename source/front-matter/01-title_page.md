@@ -1,8 +1,4 @@
-<!-- 
-This is the Latex-heavy title page. 
-People outside UCL may want to remove the header logo 
-and add the centred logo
--->
+<!-- Latex -->
 
 \begin{titlepage}
     \begin{center}

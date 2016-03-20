@@ -24,8 +24,12 @@ help:
 	@echo 'get local templates with: pandoc -D latex/html/etc	  				  '
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
-pdf:
-	pandoc "$(INPUTDIR)"/*.md \
+pdf: clean
+	pandoc \
+	"$(INPUTDIR)/front-matter"/*.md \
+	"$(INPUTDIR)"/*.md \
+	"$(INPUTDIR)/end-matter"/*.md \
+	"$(INPUTDIR)"/metadata.yaml \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
@@ -39,7 +43,7 @@ pdf:
 	--latex-engine=xelatex \
 	--verbose
 
-tex:
+tex: clean
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
@@ -51,7 +55,7 @@ tex:
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--latex-engine=xelatex
 
-docx:
+docx: clean
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
 	--bibliography="$(BIBFILE)" \
@@ -71,5 +75,9 @@ html:
 	rm -rf "$(OUTPUTDIR)/source"
 	mkdir "$(OUTPUTDIR)/source"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/source/figures"
+
+clean:
+	rm -rf $(OUTPUTDIR)
+	mkdir $(OUTPUTDIR)
 
 .PHONY: help pdf docx html tex

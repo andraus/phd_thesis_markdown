@@ -1,5 +1,5 @@
 <!-- This page is for an official declaration. -->
-
+\pagenumbering{gobble}
 
 \vspace*{\fill}
 \noindent 
