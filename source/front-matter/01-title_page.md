@@ -1,16 +1,9 @@
 <!-- Latex -->
 \begin{titlepage}
-    \begin{center}
-
-    % Delete the following line
-    % to remove the UCL header logo
-    \ThisULCornerWallPaper{1.0}{style/univ_logo.eps}
-        
-        \vspace*{2.5cm}
-        
-        \huge
-        \metatitle\\
-        
+\universityheading
+\begin{center}
+    \vspace{1.5cm}
+    \huge\metatitle
         \vspace{1.5cm}
         
         \Large

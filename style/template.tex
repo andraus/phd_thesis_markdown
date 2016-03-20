@@ -4,7 +4,6 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
-
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
 \let\origfigure=\figure
@@ -165,6 +164,15 @@ $endif$
 $if(title-meta)$
 \newcommand{\metatitle}{$title-meta$}
 $endif$
+
+\newcommand{\universityheading}{
+\includegraphics[width=.94in,
+keepaspectratio=true]{style/$university.logo$}
+\vspace{-0.8cm}
+\begin{center}
+    {\large\textbf{\textsc{$university.name$\\$university.institute$}}}
+\end{center}
+}
 
 \begin{document}
 $if(abstract)$

@@ -1,6 +1,9 @@
 ---
 author-meta: Firstname Surname
 title-meta: 'Master title: some thesis name here'
-institution-meta: University of Knowledge
 subject-meta: Subject of this work
+university:
+    name: University of Somewhere
+    institute: Institute of Knowledge
+    logo: logo.eps
 ---

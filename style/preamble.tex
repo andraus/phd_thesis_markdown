@@ -25,6 +25,7 @@
 % \newcommand{\hsp}{\hspace{20pt}}
 % \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
+
 % % Fonts and typesetting
 % \setmainfont[Scale=1.1]{Helvetica}
 % \setsansfont[Scale=1.1]{Verdana}
@@ -40,6 +41,20 @@
 %Following line controls size of figure legends
 % \setsansfont[Scale=1.2]{Optima Regular}
 
+\makeatletter
+\let\@@scshape=\scshape
+\renewcommand{\scshape}{%
+  \ifnum\strcmp{\f@series}{bx}=\z@
+    \usefont{T1}{cmr}{bx}{sc}%
+  \else
+    \ifnum\strcmp{\f@shape}{it}=\z@
+      \fontshape{scsl}\selectfont
+    \else
+      \@@scshape
+    \fi
+  \fi}
+\makeatother
+
 %Attempt to set math size
 %First size must match the text size in the document or command will not work
 %\DeclareMathSizes{display size}{text size}{script size}{scriptscript size}.
@@ -54,6 +69,7 @@
 \sectionfont{\rmfamily\mdseries\Large}
 \subsectionfont{\rmfamily\mdseries\scshape\large}
 \subsubsectionfont{\rmfamily\bfseries\upshape\large}
+
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
 % \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
@@ -65,12 +81,12 @@
 
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
-% \onehalfspacing
-\doublespacing
+\onehalfspacing
+% \doublespacing
 \raggedbottom
 
 % Set margins
-\usepackage[top=1.5in,bottom=1.5in,left=1.5in,right=1.4in]{geometry}
+\usepackage[top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
 % \setlength\parindent{0.4in} % indent at start of paragraphs (set to 0.3?)
 \setlength{\parskip}{9pt}
 

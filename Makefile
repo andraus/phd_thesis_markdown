@@ -24,12 +24,14 @@ help:
 	@echo 'get local templates with: pandoc -D latex/html/etc	  				  '
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
-pdf: clean
-	pandoc \
-	"$(INPUTDIR)/front-matter"/*.md \
+PATHS =	"$(INPUTDIR)/front-matter"/*.md \
 	"$(INPUTDIR)"/*.md \
 	"$(INPUTDIR)/end-matter"/*.md \
-	"$(INPUTDIR)"/metadata.yaml \
+	"$(INPUTDIR)"/metadata.yaml
+
+
+pdf: clean
+	pandoc $(PATHS) \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
@@ -44,7 +46,7 @@ pdf: clean
 	--verbose
 
 tex: clean
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc $(PATHS) \
 	-o "$(OUTPUTDIR)/thesis.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--bibliography="$(BIBFILE)" \
@@ -56,14 +58,14 @@ tex: clean
 	--latex-engine=xelatex
 
 docx: clean
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc $(PATHS) \
 	-o "$(OUTPUTDIR)/thesis.docx" \
 	--bibliography="$(BIBFILE)" \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--toc
 
 html:
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc $(PATHS) \
 	-o "$(OUTPUTDIR)/thesis.html" \
 	--standalone \
 	--template="$(STYLEDIR)/template.html" \
