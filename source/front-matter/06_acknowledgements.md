@@ -1,6 +1,10 @@
-# Acknowledgements {.unnumbered}
+<!-- Agradecimentos -->
+<!--
+Item opcional. É um texto em que o autor manifesta agradecimento às pessoas e instituições que, de alguma forma, colaboraram para a execução da dissertação/tese.
+-->
+\pagenumbering{gobble}
 
-<!-- This is for acknowledging all of the people who helped out -->
+### Acknowledgements {.unnumbered}
 
 Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam congue fermentum ante, semper porta nisl consectetur ut. Duis ornare sit amet dui ac faucibus. Phasellus ullamcorper leo vitae arcu ultricies cursus. Duis tristique lacus eget metus bibendum, at dapibus ante malesuada. In dictum nulla nec porta varius. Fusce et elit eget sapien fringilla maximus in sit amet dui.
 

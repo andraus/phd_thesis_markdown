@@ -1,38 +1,15 @@
-<!-- Latex -->
-\begin{titlepage}
+<!-- Primeira Folha -->
+<!-- 
+Deverá conter os seguintes dados: 1) Universidade; 2) Unidade de Defesa; 3) Autor(a); 4) Título da dissertação/tese na língua em que o trabalho foi redigido (português, inglês ou espanhol); 5) No caso de dissertação/tese redigida em inglês ou espanhol, além do título original do trabalho, obrigatoriamente, também deverá constar o título em português; 6) Local (cidade); 7) Data (ano de depósito).
+-->
+\pagenumbering{gobble}
 \universityheading
 \begin{center}
-    \vspace{1.5cm}
-    \huge\metatitle
-        \vspace{1.5cm}
-        
-        \Large
-        \metaauthor\\
-
-        \vspace{1.5cm}
-
-        \normalsize
-        A thesis presented for the degree of\\
-        Doctor of Philosophy
-        
-        \vfill
-        
-        \normalsize
-        Supervised by:\\
-        Professor Louis Fage\\
-        Captain J. Y. Cousteau
-
-        \vspace{0.8cm}
-
-        % Uncomment the following line
-        % to add a centered university logo
-        % \includegraphics[width=0.4\textwidth]{style/univ_logo.eps}
-        
-        \normalsize
-        University College London, UK\\
-        January 2015
-
-        % Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. Copyright 2015,Tom Pollard.
-
+    \vspace{3.0cm}
+    \large{\textbf{\textsc{\metaauthor}}}\\
+    \vspace{5.0cm}
+    \large{\textbf{\textsc{\metatitle}}}\\
+    \vspace*{\fill}
+    \metauniversitycity
     \end{center}
-\end{titlepage}
+\newpage

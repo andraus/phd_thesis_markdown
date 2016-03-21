@@ -165,12 +165,16 @@ $if(title-meta)$
 \newcommand{\metatitle}{$title-meta$}
 $endif$
 
+\newcommand{\metauniversitycity}{
+  \large{\textbf{\textsc{$university.city$\\\the\year}}}
+}
+
 \newcommand{\universityheading}{
 \includegraphics[width=.94in,
 keepaspectratio=true]{style/$university.logo$}
 \vspace{-0.8cm}
 \begin{center}
-    {\large\textbf{\textsc{$university.name$\\$university.institute$}}}
+    \large{\textbf{\textsc{$university.name$\\$university.institute$}}}
 \end{center}
 }
 

@@ -1,3 +1,5 @@
+\pagenumbering{arabic}
+
 # List of tables {.unnumbered}
 
 <!-- 

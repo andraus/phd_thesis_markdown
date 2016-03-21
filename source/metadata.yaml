@@ -1,9 +1,10 @@
 ---
-author-meta: Firstname Surname
-title-meta: 'Master title: some thesis name here'
-subject-meta: Subject of this work
+author-meta: Nome Sobrenome
+title-meta: 'Título principal: aqui vem o título da tese'
+subject-meta: Assunto
 university:
-    name: University of Somewhere
-    institute: Institute of Knowledge
-    logo: logo.eps
+    name: Universidade Estadual de Campinas
+    institute: Instituto de Filosofia e Ciências Humanas
+    logo: logo-unicamp.eps
+    city: Campinas
 ---
