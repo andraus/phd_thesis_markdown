@@ -23,7 +23,7 @@ Nos casos de teses defendidas em cotutela, logo abaixo do nível e da área de
 \end{center}
 \vspace*{\fill}
 *Orientador:* NOME DO ORIENTADOR(a)  
-\smallskip
+  
 *Coorientador:* NOME DO COORIENTADOR(a)  
 \bigskip
 \begin{center}

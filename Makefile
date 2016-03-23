@@ -39,7 +39,6 @@ pdf: clean
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \
 	-V fontsize=12pt \
-	-V papersize=a4paper \
 	-V documentclass:report \
 	-N \
 	--latex-engine=xelatex \

@@ -7,9 +7,17 @@ university:
     institute: Instituto de Filosofia e Ciências Humanas
     logo: logo-unicamp.eps
     city: Campinas
+
 ## lang for pandoc-citeproc
 lang: pt-BR
 ## lang for polyglossia
-mainlang: brazil
+polyglossia-lang:
+    name: brazil
+polyglossia-otherlangs:
+    name: english
+
+fontfamily: lmodern
+
+papersize: a4
 
 ---
