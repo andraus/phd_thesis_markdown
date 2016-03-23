@@ -2,6 +2,8 @@
 <!--
 Item opcional. É uma citação escolhida pelo autor
 -->
+\newpage
+\thispagestyle{empty}
 \begin{flushright}
 \vspace*{\fill}
 \textit{
@@ -13,4 +15,3 @@ Item opcional. É uma citação escolhida pelo autor
 The Matrix,\\
 The Wachowski Brothers
 \end{flushright}
-\newpage

@@ -1,5 +1,7 @@
 <!-- Ficha Catalografica -->
 <!-- Do not use headings in front-matter section will be processed into TOC, as it will be processed into TOC -->
+\newpage
+\thispagestyle{empty}
 \textbf{\textsc{Ficha Catalográfica}}
 
 A ficha catalográfica deve estar no verso da página de rosto. Será confeccionada por um profissional bibliotecário da Unidade de defesa. O aluno deve, após a defesa, solicitar a confecção à Biblioteca do IFCH, através de formulário eletrônico, disponível em.
@@ -14,4 +16,3 @@ Apesar de a ficha ser confeccionada após a defesa é necessário que, no mom
 \begin{center}
 \metauniversitycity
 \end{center}
-\newpage

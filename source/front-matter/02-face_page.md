@@ -4,35 +4,38 @@ Deverá conter os seguintes dados: 1) Autor(a); 2) Título da dissertação/
 
 Nos casos de teses defendidas em cotutela, logo abaixo do nível e da área de concentração (quando existente) deverá ser inserida a informação em português e em inglês ou espanhol de que a tese foi produzida no âmbito de um Acordo de Cotutela firmado entre a Unicamp e a Universidade convenente.
 -->
-\begin{titlepage}
+\newpage
+\thispagestyle{empty}
 \begin{center}
     \large{\textbf{\textsc{\metaauthor}}}%
     \\
-    \vspace{1.0cm}
+    \bigskip
     \large{\textbf{\textsc{\metatitle}}}%
 \end{center}
-\vspace{2.0cm}
-\begin{minipage}[t]{0.5\textwidth}
-    \hfill
-\end{minipage}%
+\bigskip
+\begin{center}
     \begin{minipage}[t]{0.5\textwidth}
-        Dissertação / Tese apresentada ao <Instituto> da <Universidade> como parte dos requisitos exigidos para a obtenção do título de Mestre(a)/Doutor(a) em <nome do título> na Área de <área de concentração>.
+        \hfill
     \end{minipage}%
+        \begin{minipage}[t]{0.5\textwidth}
+            Dissertação / Tese apresentada ao <Instituto> da <Universidade> como parte dos requisitos exigidos para a obtenção do título de Mestre(a)/Doutor(a) em <nome do título> na Área de <área de concentração>.
+        \end{minipage}
+\end{center}
 \vspace*{\fill}
-\textit{Orientador:} <NOME DO ORIENTADOR(a)>%
-\newline
-\textit{Coorientador:} <NOME DO COORIENTADOR(a)>%
-\par\vspace*{1.0cm}
+*Orientador:* NOME DO ORIENTADOR(a)  
+\smallskip
+*Coorientador:* NOME DO COORIENTADOR(a)  
+\bigskip
+\begin{center}
     \begin{minipage}[b]{0.5\textwidth}
-        \textsc{Este exemplar corresponde à versão final da dissertação/tese defendida pelo aluno(a) \metaauthor{} e orientada pelo(a) prof(a). dr(a). <ORIENTADOR(a)>.}%
+        \textsc{Este exemplar corresponde à versão final da dissertação/tese defendida pelo aluno(a) \metaauthor{} e orientada pelo(a) prof(a). dr(a). <ORIENTADOR(a)>.}
         \par\vspace*{1.0cm}
-        \rule{\textwidth}{1.5pt}
+        \noindent\rule{\textwidth}{1.5pt}
     \end{minipage}%
     \begin{minipage}[b]{0.5\textwidth}
         \hfill
     \end{minipage}
-
-    \begin{center}
-        \metauniversitycity
-    \end{center}
-\end{titlepage}
+\end{center}
+\begin{center}
+    \metauniversitycity
+\end{center}

@@ -2,6 +2,8 @@
 <!--
 Item opcional. É um texto, geralmente curto, no qual o autor presta uma homenagem ou dedica seu trabalho a alguém.
 -->
+\newpage
+\thispagestyle{empty}
 \begin{flushright}
 \vspace*{\fill}
 \textit{
@@ -9,4 +11,3 @@ Item opcional. É um texto, geralmente curto, no qual o autor presta uma homena
     Fundamental em todo processo.\\
 }
 \end{flushright}
-\newpage

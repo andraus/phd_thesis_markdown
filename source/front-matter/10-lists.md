@@ -2,6 +2,8 @@
 <!--
 Item opcional. A lista deve ser elaborada de acordo com a ordem apresentada no texto, com cada item designado por seu título específico, acompanhado do respectivo número de página, salvo para os casos de listas de abreviaturas, siglas e símbolos.
 -->
+\newpage
+\thispagestyle{empty}
 \textbf{\textsc{List of tables}}
 
 <!-- 
@@ -10,8 +12,6 @@ For me, this was the only drawback of writing in Markdown: it is not possible to
 
 Table 5.1  This is an example table . . .               \hfill{pp}  
 Table x.x  Short title of the figure . . .              \hfill{pp}  
-
-\newpage
 
 
 

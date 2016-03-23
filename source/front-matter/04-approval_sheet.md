@@ -2,6 +2,8 @@
 <!--
 A folha de aprovação deverá dar visibilidade à Comissão Examinadora, com a informação de que a Ata da Defesa, assinada pelos membros da Comissão Julgadora, consta no processo de vida acadêmica do aluno.
 -->
+\newpage
+\thispagestyle{empty}
 \universityheading
 
 \bigskip\bigskip\bigskip
@@ -27,4 +29,3 @@ Prof(a) Dr(a) <Nome do professor(a)>
 \bigskip\bigskip\bigskip
 
 ***A Ata de Defesa, assinada pelos membros da Comissão Examinadora, consta no processo de vida acadêmica do(a) aluno(a).***
-\newpage
