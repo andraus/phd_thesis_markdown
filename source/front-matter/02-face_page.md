@@ -18,16 +18,18 @@ Nos casos de teses defendidas em cotutela, logo abaixo do nível e da área de
         \hfill
     \end{minipage}%
         \begin{minipage}[t]{0.5\textwidth}
+            \noindent
             Dissertação / Tese apresentada ao <Instituto> da <Universidade> como parte dos requisitos exigidos para a obtenção do título de Mestre(a)/Doutor(a) em <nome do título> na Área de <área de concentração>.
         \end{minipage}
 \end{center}
 \vspace*{\fill}
-*Orientador:* NOME DO ORIENTADOR(a)  
+\noindent\textit{Orientador:} NOME DO ORIENTADOR(a)  
   
-*Coorientador:* NOME DO COORIENTADOR(a)  
+\noindent\textit{Coorientador:} NOME DO COORIENTADOR(a)  
 \bigskip
 \begin{center}
     \begin{minipage}[b]{0.5\textwidth}
+        \noindent
         \textsc{Este exemplar corresponde à versão final da dissertação/tese defendida pelo aluno(a) \metaauthor{} e orientada pelo(a) prof(a). dr(a). <ORIENTADOR(a)>.}
         \par\vspace*{1.0cm}
         \noindent\rule{\textwidth}{1.5pt}

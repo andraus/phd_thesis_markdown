@@ -22,4 +22,6 @@ fontsize: 12pt
 
 papersize: a4
 
+indent: '2.0cm'
+## toc-depth: 3
 ---

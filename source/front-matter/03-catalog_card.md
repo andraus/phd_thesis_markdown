@@ -2,8 +2,11 @@
 <!-- Do not use headings in front-matter section will be processed into TOC, as it will be processed into TOC -->
 \newpage
 \thispagestyle{empty}
+\noindent
 \textbf{\textsc{Ficha Catalográfica}}
 
+\bigskip
+\noindent
 A ficha catalográfica deve estar no verso da página de rosto. Será confeccionada por um profissional bibliotecário da Unidade de defesa. O aluno deve, após a defesa, solicitar a confecção à Biblioteca do IFCH, através de formulário eletrônico, disponível em.
 
 Caso a tese de doutorado seja feita em cotutela, será necessário informar na ficha catalográfica o fato, o nome da Universidade convenente e os nomes dos orientadores.
