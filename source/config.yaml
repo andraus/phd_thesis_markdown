@@ -16,7 +16,9 @@ polyglossia-lang:
 polyglossia-otherlangs:
     name: english
 
+## default font values
 fontfamily: lmodern
+fontsize: 12pt
 
 papersize: a4
 

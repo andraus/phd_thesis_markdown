@@ -27,7 +27,7 @@ help:
 PATHS =	"$(INPUTDIR)/front-matter"/*.md \
 	"$(INPUTDIR)"/*.md \
 	"$(INPUTDIR)/end-matter"/*.md \
-	"$(INPUTDIR)"/metadata.yaml
+	"$(INPUTDIR)"/config.yaml
 
 
 pdf: clean
@@ -38,7 +38,6 @@ pdf: clean
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \
-	-V fontsize=12pt \
 	-V documentclass:report \
 	-N \
 	--latex-engine=xelatex \
@@ -49,8 +48,6 @@ tex: clean
 	-o "$(OUTPUTDIR)/thesis.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--bibliography="$(BIBFILE)" \
-	-V fontsize=12pt \
-	-V papersize=a4paper \
 	-V documentclass:report \
 	-N \
 	--csl="$(STYLEDIR)/ref_format.csl" \
