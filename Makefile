@@ -24,14 +24,23 @@ help:
 	@echo 'get local templates with: pandoc -D latex/html/etc	  				  '
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
-PATHS =	"$(INPUTDIR)/front-matter"/*.md \
+PATHSOLD =	"$(INPUTDIR)/front-matter"/*.md \
 	"$(INPUTDIR)"/*.md \
 	"$(INPUTDIR)/end-matter"/*.md \
 	"$(INPUTDIR)"/config.yaml
 
+FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
+BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
+ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
+
+PATHS = $(FRONTMATTER) \
+	$(BODY) \
+	$(ENDMATTER) \
+	$(INPUTDIR)/config.yaml
 
 pdf: clean
-	pandoc $(PATHS) \
+	pandoc \
+	$(PATHS) \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
