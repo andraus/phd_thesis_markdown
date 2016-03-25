@@ -3,7 +3,7 @@
 \newpage
 \thispagestyle{empty}
 \noindent
-\textbf{\textsc{Ficha Catalográfica}}
+{\huge{Ficha Catalográfica}}
 
 \bigskip
 \noindent

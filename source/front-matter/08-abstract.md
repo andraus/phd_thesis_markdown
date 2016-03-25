@@ -7,7 +7,7 @@ É a síntese dos pontos relevantes da dissertação/tese, em linguagem clar
 \thispagestyle{empty}
 
 \noindent
-\textbf{\textsc{Resumo}}
+{\huge{Resumo}}
 
 \bigskip
 \noindent
@@ -15,4 +15,5 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam congue fer
 
 Mauris eget blandit nisi, faucibus imperdiet odio. Suspendisse blandit dolor sed tellus venenatis, venenatis fringilla turpis pretium. Donec pharetra arcu vitae euismod tincidunt. Morbi ut turpis volutpat, ultrices felis non, finibus justo. Proin convallis accumsan sem ac vulputate. Sed rhoncus ipsum eu urna placerat, sed rhoncus erat facilisis. Praesent vitae vestibulum dui. Proin interdum tellus ac velit varius, sed finibus turpis placerat.
 
-**Palavras Chave:** Listar aqui; algumas; palavras chave
+\noindent
+\textbf{Palavras Chave:} Listar aqui; algumas; palavras chave

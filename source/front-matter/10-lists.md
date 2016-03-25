@@ -6,7 +6,7 @@ Item opcional. A lista deve ser elaborada de acordo com a ordem apresentada no t
 \thispagestyle{empty}
 
 \noindent
-\textbf{\textsc{Lists}}
+{\huge{Lists}}
 
 \bigskip
 <!-- 

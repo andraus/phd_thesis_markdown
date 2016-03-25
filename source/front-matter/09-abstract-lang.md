@@ -7,7 +7,7 @@ É a tradução do resumo para a língua inglesa, com a finalidade de facili
 \thispagestyle{empty}
 
 \noindent
-\textbf{\textsc{Abstract}}
+{\huge{Abstract}}
 
 \bigskip
 \noindent
@@ -15,7 +15,8 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam congue fer
 
 Mauris eget blandit nisi, faucibus imperdiet odio. Suspendisse blandit dolor sed tellus venenatis, venenatis fringilla turpis pretium. Donec pharetra arcu vitae euismod tincidunt. Morbi ut turpis volutpat, ultrices felis non, finibus justo. Proin convallis accumsan sem ac vulputate. Sed rhoncus ipsum eu urna placerat, sed rhoncus erat facilisis. Praesent vitae vestibulum dui. Proin interdum tellus ac velit varius, sed finibus turpis placerat.
 
-**Keywords:** Enumerate here; some; keywords
+\noindent
+\textbf{Keywords:} Enumerate here; some; keywords
 
 
 

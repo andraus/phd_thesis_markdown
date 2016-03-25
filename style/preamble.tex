@@ -33,11 +33,6 @@
 % or use \extrafloats{100}
 % add some \clearpage
 
-% % Chapter header
-% \usepackage{titlesec, blindtext, color}
-% \definecolor{gray75}{gray}{0.75}
-% \newcommand{\hsp}{\hspace{20pt}}
-% \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 
 % % Fonts and typesetting
@@ -79,10 +74,41 @@
 
 % HEADINGS
 \usepackage{sectsty}
-\usepackage[normalem]{ulem}
-\sectionfont{\rmfamily\mdseries\Large}
-\subsectionfont{\rmfamily\mdseries\scshape\large}
-\subsubsectionfont{\rmfamily\bfseries\upshape\large}
+% \usepackage[normalem]{ulem}
+% \sectionfont{\rmfamily\mdseries\Large}
+% \subsectionfont{\rmfamily\mdseries\scshape\large}
+% \subsubsectionfont{\rmfamily\bfseries\upshape\large}
+
+
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\huge\rmfamily}
+  {\thechapter.}
+  {15pt}
+  {}
+\titlespacing*{\chapter}{0pt}{*0}{15pt}
+\titleformat{\section}[block]
+  {\large\bfseries\rmfamily}
+  {\thesection.}
+  {10pt}
+  {}
+\titleformat{\subsection}[block]
+  {\bfseries\rmfamily}
+  {\thesubsection.}
+  {10pt}
+  {}
+\titleformat{\subsubsection}[block]
+  {\bfseries\rmfamily}
+  {\thesubsubsection.}
+  {10pt}
+  {}
+
+% Chapter header
+% \usepackage{titlesec, blindtext, color}
+% \definecolor{gray75}{gray}{0.75}
+% \newcommand{\hsp}{\hspace{20pt}}
+% \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
 
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
