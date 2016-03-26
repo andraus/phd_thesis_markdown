@@ -1,5 +1,4 @@
 
-
 % Set margins
 \usepackage[top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
 % \usepackage{indentfirst}
@@ -102,6 +101,13 @@
   {\thesubsubsection.}
   {10pt}
   {}
+
+%% long quote formatting
+
+\renewenvironment{quote}
+  {\small\singlespacing\list{}{\rightmargin=0cm \leftmargin=4.0cm}%
+   \item\relax}
+  {\endlist}
 
 % Chapter header
 % \usepackage{titlesec, blindtext, color}
