@@ -6,16 +6,40 @@ Item opcional. A lista deve ser elaborada de acordo com a ordem apresentada no t
 \thispagestyle{empty}
 
 \noindent
-{\huge{Lists}}
+{\huge{Lista de Abreviaturas}}
 
-\bigskip
-<!-- 
-For me, this was the only drawback of writing in Markdown: it is not possible to add a short caption to figures and tables. This means that the \listoftables and \listoffigures commands will generate lists using the full titles, which is probably isn't what you want. For now, the solution is to create the lists manually, when everything else is finished.
+BA
+
+:   Boolean Algebra
+
+CPL
+
+:   Classical Propositional Logic
+
+LFM
+
+:   Wittgenstein's Lectures on the Foundations of Mathematics
+
+
+<!--
+The latex-heavy block below is a hack to prevent page numbering to commands
+\listoffigures and \listoftables
 -->
+\cleardoublepage
+\begingroup
+\makeatletter
+\let\ps@plain\ps@empty
+\makeatother
 
+\pagestyle{empty}
+\listoffigures
+\listoftables
+\cleardoublepage
+\endgroup
+<!--
 \noindent
 Table 5.1  This is an example table . . .               \hfill{pp}  
 Table x.x  Short title of the figure . . .              \hfill{pp}  
-
+-->
 
 

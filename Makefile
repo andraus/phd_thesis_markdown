@@ -49,6 +49,7 @@ pdf: clean
 	--highlight-style pygments \
 	-V documentclass:report \
 	-N \
+	--filter pandoc-crossref \
 	--latex-engine=xelatex \
 	--verbose
 
@@ -60,6 +61,7 @@ tex: clean
 	-V documentclass:report \
 	-N \
 	--csl="$(STYLEDIR)/ref_format.csl" \
+	--filter pandoc-crossref \
 	--latex-engine=xelatex
 
 docx: clean

@@ -24,4 +24,19 @@ papersize: a4
 
 indent: '2.0cm'
 ## toc-depth: 3
+
+
+## ###############################
+## pandoc-crossref customizations
+## ###############################
+figureTitle: "Figura"
+tableTitle: "Tabela"
+listingTitle: "Lista"
+figPrefix: "figura"
+eqnPrefix: "equação"
+tblPrefix: "tabela"
+lstPrefix: "lista"
+loftitle: "# Lista de figurassss"
+lotTitle: "# Lista de tabelas"
+
 ---
