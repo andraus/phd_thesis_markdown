@@ -8,6 +8,8 @@ university:
     logo: logo-unicamp.eps
     city: Campinas
 
+geometry: "top=3cm, bottom=2cm, left=3cm, right=2cm"
+
 ## lang for pandoc-citeproc
 lang: pt-BR
 ## lang for polyglossia
