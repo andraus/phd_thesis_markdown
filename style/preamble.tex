@@ -76,25 +76,31 @@
 % \subsectionfont{\rmfamily\mdseries\scshape\large}
 % \subsubsectionfont{\rmfamily\bfseries\upshape\large}
 
-
 \usepackage{titlesec}
-\titleformat{\chapter}[block]
+
+\titleformat{\chapter}[hang]
   {\huge\rmfamily}
   {\thechapter.}
   {15pt}
   {}
-\titlespacing*{\chapter}{0pt}{*0}{15pt}
-\titleformat{\section}[block]
+\titlespacing*{\chapter}
+  {0pt}
+  {-32pt} %% space before title
+  {0pt} %% space adter title
+
+\titleformat{\section}[hang]
   {\large\bfseries\rmfamily}
   {\thesection.}
   {10pt}
   {}
-\titleformat{\subsection}[block]
+
+\titleformat{\subsection}[hang]
   {\bfseries\rmfamily}
   {\thesubsection.}
   {10pt}
   {}
-\titleformat{\subsubsection}[block]
+
+\titleformat{\subsubsection}[hang]
   {\bfseries\rmfamily}
   {\thesubsubsection.}
   {10pt}
