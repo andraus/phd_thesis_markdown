@@ -2,7 +2,7 @@ PY=python
 PANDOC=pandoc
 
 BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/source
+INPUTDIR=$(BASEDIR)/src
 OUTPUTDIR=$(BASEDIR)/output
 TEMPLATEDIR=$(INPUTDIR)/templates
 STYLEDIR=$(BASEDIR)/style
@@ -90,9 +90,9 @@ html:
 	--include-in-header="$(STYLEDIR)/style.css" \
 	--toc \
 	--number-sections
-	rm -rf "$(OUTPUTDIR)/source"
-	mkdir "$(OUTPUTDIR)/source"
-	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/source/figures"
+	rm -rf "$(OUTPUTDIR)/src"
+	mkdir "$(OUTPUTDIR)/src"
+	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/src/figures"
 
 clean:
 	rm -rf $(OUTPUTDIR)

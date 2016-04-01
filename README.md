@@ -28,8 +28,8 @@ There are some minor annoyances:
 - License.md => terms of reuse (MIT license).
 - Makefile => contains instructions for using Pandoc to produce the final thesis.
 - output/ => directory to hold the final version.
-- source/ => directory to hold the thesis content. Includes the references.bib file.
-- source/figures/ => directory to hold the figures.
+- src/ => directory to hold the thesis content. Includes the references.bib file.
+- src/figures/ => directory to hold the figures.
 - style/ => directory to hold the style documents.
 
 ## How do I get started?
@@ -56,7 +56,7 @@ There are some minor annoyances:
     sudo tlmgr update l3experimental
     ```
     
-5. Edit the files in the 'source' directory, then goto step 4.  
+5. Edit the files in the 'src' directory, then goto step 4.  
 
 ## What else do I need to know?
 

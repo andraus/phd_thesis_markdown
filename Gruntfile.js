@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 interrupt: true
             },
             scripts: {
-                files: ['source/*.md'],
+                files: ['src/*.md'],
                 tasks: ['make:' + type, 'notify:make']
             }
         },
