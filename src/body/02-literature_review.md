@@ -14,9 +14,9 @@ This is the introduction. Duis in neque felis. In hac habitasse platea dictumst.
 
 This is the literature review. Nullam quam odio, volutpat ac ornare quis, vestibulum nec nulla. Aenean nec dapibus in mL/min^-1^. Mathematical formula can be inserted using Latex:
 
-(@ref_for_eqn1) $f(x) = ax^3 + bx^2 + cx + d$
+$$ f(x) = ax^3 + bx^2 + cx + d $$ {#eq:ref_for_eqn1}
 
-Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.  
+[@Eq:ref_for_eqn1] is a great equation. Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.  
 
 > Now, let's try a block quote. The layout should match correctly all the configurations placed here.  
 > What happens if I include a second paragraph? [@Cousteau1963]  
