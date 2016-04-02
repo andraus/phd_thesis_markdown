@@ -1,6 +1,6 @@
 # Model for thesis or dissertations of Unicamp
 
-This project is a fork of (https://github.com/tompollard/phd_thesis_markdown), which I'm very thankful for.
+This project is a fork from https://github.com/tompollard/phd_thesis_markdown, which I'm very thankful for.
 
 It was heavily modified to incorporate Unicamp's front-matter requirements, and my own preferences.
 
