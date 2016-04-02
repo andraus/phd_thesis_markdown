@@ -16,10 +16,10 @@ help:
 	@echo 'Usage:                                                                   						 '
 	@echo '   make html                        							generate a web version  			 '
 	@echo '   make pdf                         							generate a PDF file  			     '
-	@echo '   make pdf include-frontmatter=yes bibstyle=abnt			generate a PDF file with front matter'
+	@echo '   make pdf strip-frontmatter=yes bibstyle=abnt-ABNT			generate a PDF file without front matter'
 	@echo '   make docx	                       							generate a Docx file 			     '
 	@echo '   make tex	                       							generate a Latex file 			     '
-	@echo '   make tex include-frontmatter=yes 							generate a PDF file with front matter'
+	@echo '   make tex strip-frontmatter=yes 							generate a PDF file without front matter'
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -47,10 +47,10 @@ else ifneq (,$(findstring $(bibstyle),abnt-ABNT))
 endif
 
 
-ifneq (,$(findstring $(include-frontmatter),yes-y-on))
-  FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
-else
+ifneq (,$(findstring $(strip-frontmatter),yes-y-on))
   FRONTMATTER = 
+else
+  FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
 endif
 
 BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
@@ -72,10 +72,10 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	-N \
 	--filter pandoc-crossref
 
-ifneq (,$(findstring $(include-frontmatter),yes-y-on))
-  PANDOC_TOC = 
-else
+ifneq (,$(findstring $(strip-frontmatter),yes-y-on))
   PANDOC_TOC = "--toc"
+else
+  PANDOC_TOC = 
 endif
 
 ifndef $(bibstyle)
