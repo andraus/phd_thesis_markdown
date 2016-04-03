@@ -6,6 +6,13 @@ It was heavily modified to incorporate Unicamp's front-matter requirements, and 
 
 General info about this template can be found through the previously mentioned link. This README file will have specifics about my changes. 
 
+## Main features:
+
+- Already structured and ready-to-go Unicamp's thesis front-matter format and requirements.
+- Automatic bibliography citation
+- Convenient Makefile compile output
+- Makefile supports different citation styles
+
 ## Specifics
 
 In general terms, you will write your text in light markdown syntax, which will be compiled into pdf (or TeX, or docx) through pandoc. If you're unfamiliar with those terms, I recommend to read TomPollard's original README file, and the README file of pandoc.
@@ -34,14 +41,10 @@ In OSX, you can install `pandoc-crossref` via homebrew:
 brew install pandoc-crossref
 ```
 
-Now, next sections are purely from TomPollards's great original project.
+Next sections are purely from TomPollards's great original project.
 
-## Main features:
 
-- Already structured and ready-to-go Unicamp's thesis front-matter format and requirements.
-- Automatic bibliography citation
-
-# Template for writing a PhD thesis in Markdown [![Build Status](https://travis-ci.org/tompollard/phd_thesis_markdown.svg?branch=master)](https://travis-ci.org/tompollard/phd_thesis_markdown)
+# Template for writing a PhD thesis in Markdown 
 
 This repository provides a framework for writing a PhD thesis in Markdown. I used the template for my PhD submission to University College London (UCL), but it should be straightforward to adapt suit other universities too.
 
