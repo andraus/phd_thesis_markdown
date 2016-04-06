@@ -44,8 +44,10 @@ else ifneq (,$(findstring $(bibstyle),springer))
   CSL = $(STYLEDIR)/csl/springer-basic-author-date.csl
 else ifneq (,$(findstring $(bibstyle),abnt-ABNT))
   CSL = $(STYLEDIR)/csl/associacao-brasileira-de-normas-tecnicas.csl
+else
+  ## default
+  CSL = $(STYLEDIR)/csl/associacao-brasileira-de-normas-tecnicas.csl
 endif
-
 
 ifneq (,$(findstring $(add-frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
@@ -76,10 +78,6 @@ ifneq (,$(findstring $(add-frontmatter),yes-y-on))
   PANDOC_TOC = 
 else
   PANDOC_TOC = "--toc"
-endif
-
-ifndef $(bibstyle)
-	bibstyle = abnt
 endif
 
 pdf: clean
