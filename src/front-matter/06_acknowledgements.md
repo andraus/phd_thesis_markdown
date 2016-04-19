@@ -7,7 +7,7 @@ Item opcional. É um texto em que o autor manifesta agradecimento às pessoas 
 \thispagestyle{empty}
 
 \noindent
-{\huge{Acknowledgements}}
+{\section*{Acknowledgements}}
 
 \bigskip
 \noindent

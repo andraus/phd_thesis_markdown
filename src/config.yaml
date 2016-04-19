@@ -1,12 +1,29 @@
 ---
-author-meta: Nome Sobrenome
-title-meta: 'Título principal: aqui vem o título da tese'
-subject-meta: Assunto
+## ###########
+## frontmatter and metadata data
+## ###########
+title: 'Título principal'
+subtitle: 'Algum subtítulo vem aqui'
+titlerunning: 'Título curto'
+author: 
+    - Nome1 Sobrenome1
+    - Nome2 Sobrenome2
 university:
     name: Universidade Estadual de Campinas
     institute: Instituto de Filosofia e Ciências Humanas
     logo: logo-unicamp.eps
     city: Campinas
+institute: "Universidade Estadual de Campinas"
+thanks: "Grants or other notes in front page"
+
+abstract: 'Será possível escrever um abstract enorme em uma simples propriedade yaml? Acho meio estranho... Enfim.'
+
+keywords: '\textbf{Palavras-chave: }um; dois; três.'
+
+## ####################
+## template variables
+## ####################
+documentclass: scrartcl
 
 geometry: "top=3cm, bottom=2cm, left=3cm, right=2cm"
 
@@ -19,14 +36,15 @@ polyglossia-otherlangs:
     name: english
 
 ## default font values
+fontenc: T1
 fontfamily: lmodern
 fontsize: 12pt
 
 papersize: a4
 
 indent: '2.0cm'
-## toc-depth: 3
 
+## toc-depth: 3
 
 ## ###############################
 ## pandoc-crossref customizations

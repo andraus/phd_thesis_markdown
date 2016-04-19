@@ -22,7 +22,7 @@ Deverá conter os seguintes dados: 1) Universidade; 2) Unidade de Defesa; 3) Au
     \bigskip
     \bigskip
     \bigskip
-    \large{\textbf{\textsc{\metatitle}}}\\
+    \large{\textbf{\textsc{\metatitle\\\metasubtitle}}}\\
 \end{center}
 }
 \vspace*{\fill}

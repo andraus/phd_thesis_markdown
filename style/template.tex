@@ -1,4 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(fontenc)$
+\usepackage[$fontenc$]{fontenc}
+$endif$
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -58,11 +61,11 @@ $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 $endif$
 \hypersetup{unicode=true,
-$if(title-meta)$
-            pdftitle={$title-meta$},
+$if(title)$
+            pdftitle={$title$},
 $endif$
-$if(author-meta)$
-            pdfauthor={$author-meta$},
+$if(author)$
+            pdfauthor={$author$},
 $endif$
 $if(keywords)$
             pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
@@ -189,11 +192,14 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+
+\setkomafont{title}{\bfseries}
+\setkomafont{sectionentry}{\bfseries}
+
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
-\providecommand{\subtitle}[1]{}
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
@@ -203,38 +209,58 @@ $endif$
 
 %% Custom section
 %% Meta data -> latex commands
-$if(author-meta)$
-\newcommand{\metaauthor}{$author-meta$}
+$if(default_frontmatter)$
+$else$
+  $if(author)$
+  \newcommand{\metaauthor}{$author$}
+  $endif$
+
+  $if(title)$
+  \newcommand{\metatitle}{$title$}
+  $endif$
+
+  $if(subtitle)$
+  \newcommand{\metasubtitle}{$subtitle$}
+  $endif$
+
+  \newcommand{\metauniversitycity}{
+    \large{\textbf{\textsc{$university.city$\\\the\year}}}
+  }
+
+  \newcommand{\universityheading}{
+  \includegraphics[width=.94in,
+  keepaspectratio=true]{style/$university.logo$}
+  \vspace{-0.8cm}
+  \begin{center}
+      \large{\textbf{\textsc{$university.name$\\$university.institute$}}}
+  \end{center}
+  }
 $endif$
-
-$if(title-meta)$
-\newcommand{\metatitle}{$title-meta$}
-$endif$
-
-\newcommand{\metauniversitycity}{
-  \large{\textbf{\textsc{$university.city$\\\the\year}}}
-}
-
-\newcommand{\universityheading}{
-\includegraphics[width=.94in,
-keepaspectratio=true]{style/$university.logo$}
-\vspace{-0.8cm}
-\begin{center}
-    \large{\textbf{\textsc{$university.name$\\$university.institute$}}}
-\end{center}
-}
 
 %% end custom section
 
 \begin{document}
+$if(default_frontmatter)$
 $if(title)$
 \maketitle
+$endif$
+$if(institute)$
+\publishers{$institute$}
 $endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$
+\\
+\smallskip
+\\
+$if(keywords)$
+$for(keywords)$$keywords$$sep$ \and $endfor$
+$endif$
 \end{abstract}
 $endif$
+$endif$
+
+\newpage
 
 $for(include-before)$
 $include-before$

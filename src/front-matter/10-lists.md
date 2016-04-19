@@ -5,7 +5,7 @@ Item opcional. A lista deve ser elaborada de acordo com a ordem apresentada no t
 \newpage
 \thispagestyle{empty}
 \noindent
-{\huge{Lista de Abreviaturas}}
+{\section*{Lista de Abreviaturas}}
 
 
 BA

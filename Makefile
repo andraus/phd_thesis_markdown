@@ -16,10 +16,11 @@ help:
 	@echo 'Usage:                                                                   						 '
 	@echo '   make html                        							generate a web version  			 '
 	@echo '   make pdf                         							generate a PDF file  			     '
-	@echo '   make pdf add-frontmatter=yes bibstyle=abnt-ABNT			generate a PDF file wit front matter '
+	@echo '   make pdf pandoc-toc=yes                        			generate a PDF file with pandoc toc  '
+	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT			generate a PDF file wit front matter '
 	@echo '   make docx	                       							generate a Docx file 			     '
 	@echo '   make tex	                       							generate a Latex file 			     '
-	@echo '   make tex add-frontmatter=yes 								generate a PDF file with front matter'
+	@echo '   make tex custom-frontmatter=yes 								generate a PDF file with front matter'
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -49,10 +50,12 @@ else
   CSL = $(STYLEDIR)/csl/associacao-brasileira-de-normas-tecnicas.csl
 endif
 
-ifneq (,$(findstring $(add-frontmatter),yes-y-on))
+ifneq (,$(findstring $(custom-frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
+  DEFAULT_FM = 
 else
   FRONTMATTER = 
+  DEFAULT_FM = "--metadata=default_frontmatter=y"
 endif
 
 BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
@@ -70,14 +73,15 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl=$(CSL) \
 	--highlight-style pygments \
-	-V documentclass:report \
 	-N \
-	--filter pandoc-crossref
+	--filter pandoc-crossref \
+	$(DEFAULT_FM)
 
-ifneq (,$(findstring $(add-frontmatter),yes-y-on))
-  PANDOC_TOC = 
-else
+
+ifneq (,$(findstring $(pandoc-toc),yes-y-on))
   PANDOC_TOC = "--toc"
+else
+  PANDOC_TOC = 
 endif
 
 pdf: clean
@@ -98,9 +102,9 @@ tex: clean
 docx: clean
 	pandoc \
 	$(BASE_PANDOC_PARAMS) \
-	$(PANDOC_DOC) \
-	-o "$(OUTPUTDIR)/thesis.docx" \
-	--toc
+	$(PANDOC_TOC) \
+	--reference-docx template.docx \
+	-o "$(OUTPUTDIR)/thesis.docx"
 
 html:
 	pandoc \

@@ -7,7 +7,7 @@ É a tradução do resumo para a língua inglesa, com a finalidade de facili
 \thispagestyle{empty}
 
 \noindent
-{\huge{Abstract}}
+{\section*{Abstract}}
 
 \bigskip
 \noindent

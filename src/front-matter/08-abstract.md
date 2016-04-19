@@ -7,7 +7,7 @@ É a síntese dos pontos relevantes da dissertação/tese, em linguagem clar
 \thispagestyle{empty}
 
 \noindent
-{\huge{Resumo}}
+{\section*{Resumo}}
 
 \bigskip
 \noindent
