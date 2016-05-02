@@ -10,7 +10,7 @@ Nos casos de teses defendidas em cotutela, logo abaixo do nível e da área de
     \large{\textbf{\textsc{\metaauthor}}}%
     \\
     \bigskip
-    \large{\textbf{\textsc{\metatitle}}}%
+    \large{\textbf{\textsc{\metatitle{}: \metasubtitle{}}}}%
 \end{center}
 \bigskip
 \begin{center}
