@@ -62,10 +62,10 @@ $if(colorlinks)$
 $endif$
 \hypersetup{unicode=true,
 $if(title)$
-            pdftitle={$title$},
+            pdftitle={$title$ $if(subtitle)$$subtitle$$endif$},
 $endif$
 $if(author)$
-            pdfauthor={$author$},
+            pdfauthor={$for(author)$$author.name$$sep$; $endfor$},
 $endif$
 $if(keywords)$
             pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
@@ -203,7 +203,17 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author{
+  $for(author)$
+    $author.name$ 
+    $if(author.email)$
+    \\ \normalsize\texttt{$author.email$}
+    $endif$
+    $if(author.affiliation)$
+    \\ \normalsize{$author.affiliation$}
+    $endif$
+  \and 
+  $endfor$}
 $endif$
 \date{$date$}
 
@@ -212,7 +222,7 @@ $endif$
 $if(default_frontmatter)$
 $else$
   $if(author)$
-  \newcommand{\metaauthor}{$author$}
+  \newcommand{\metaauthor}{$for(author)$$author.name$$sep$; $endfor$}
   $endif$
 
   $if(title)$

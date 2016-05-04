@@ -6,8 +6,9 @@ title: 'Título principal'
 subtitle: 'Algum subtítulo vem aqui'
 titlerunning: 'Título curto'
 author: 
-    - Nome1 Sobrenome1
-    - Nome2 Sobrenome2
+    - name: Nome1 Sobrenome1
+      email: nome1@institution.org
+      affiliation: University of Knowledge
 university:
     name: Universidade Estadual de Campinas
     institute: Instituto de Filosofia e Ciências Humanas
