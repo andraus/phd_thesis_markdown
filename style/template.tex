@@ -247,6 +247,13 @@ $else$
   }
 $endif$
 
+\newcommand{\configreferencesparagraph}{
+\setlength{\parindent}{-$if(indent)$$indent$$else$0cm$endif$ }
+\setlength{\leftskip}{$if(indent)$$indent$$else$0cm$endif$}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setstretch{1}
+}
+
 %% end custom section
 
 \begin{document}
