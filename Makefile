@@ -21,6 +21,7 @@ help:
 	@echo '   make docx	                       							generate a Docx file 			     '
 	@echo '   make tex	                       							generate a Latex file 			     '
 	@echo '   make tex custom-frontmatter=yes 								generate a PDF file with front matter'
+	@echo '   make wc                                         output word count for every .md file under src/body '
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -52,9 +53,9 @@ endif
 
 ifneq (,$(findstring $(custom-frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
-  DEFAULT_FM = 
+  DEFAULT_FM =
 else
-  FRONTMATTER = 
+  FRONTMATTER =
   DEFAULT_FM = "--metadata=default_frontmatter=y"
 endif
 
@@ -81,7 +82,7 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 ifneq (,$(findstring $(pandoc-toc),yes-y-on))
   PANDOC_TOC = "--toc"
 else
-  PANDOC_TOC = 
+  PANDOC_TOC =
 endif
 
 pdf: clean
@@ -121,8 +122,11 @@ html:
 	mkdir "$(OUTPUTDIR)/src"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/src/figures"
 
+wc:
+	@wc -w $(BODY)
+
 clean:
 	rm -rf $(OUTPUTDIR)
 	mkdir $(OUTPUTDIR)
 
-.PHONY: help pdf docx html tex
+.PHONY: help pdf docx html tex wc
