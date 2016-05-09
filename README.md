@@ -34,11 +34,23 @@ A few commands to get started:
 
 ## Dependencies
 
+# `pandoc-crossref`
 This project needs an extra dependency besides the default ones from TomPollard's original project, which is `pandoc-crossref`. TomPollard uses latex for cross-referencing figures, tables, etc. but I think that pandoc-crossref does a better job at that. Check the sample files in `src/body` for details.
 
 In OSX, you can install `pandoc-crossref` via homebrew:
 ```
 brew install pandoc-crossref
+```
+
+# `wc`
+
+The target `make wc` will count words in directory `src\body`. The tool `wc` is preloaded in OSX Darwin, however it may be necessary to install it in other operational system.
+
+# `language-tool`
+
+The target `make spellcheck` will check the grammar in files in `src\body`. The tool `languagetool` will need to be installed. In OSX, you can install `languagetool` via homebrew:
+```
+brew install languagetool
 ```
 
 Follow up on TomPollard's original [README](TP-README.md).

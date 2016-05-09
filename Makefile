@@ -22,6 +22,8 @@ help:
 	@echo '   make tex	                       							generate a Latex file 			     '
 	@echo '   make tex custom-frontmatter=yes 								generate a PDF file with front matter'
 	@echo '   make wc                                         output word count for every .md file under src/body '
+	@echo '   make spellcheck                                 checks grammar using languagetool (autodetect language) '
+	@echo '   make spellcheck lang=en-GB                      checks grammar using language tool '
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -57,6 +59,12 @@ ifneq (,$(findstring $(custom-frontmatter),yes-y-on))
 else
   FRONTMATTER =
   DEFAULT_FM = "--metadata=default_frontmatter=y"
+endif
+
+ifndef lang
+	LANGUAGE = -adl
+else
+  LANGUAGE = -l $(lang)
 endif
 
 BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
@@ -125,8 +133,11 @@ html:
 wc:
 	@wc -w $(BODY)
 
+spellcheck:
+	languagetool $(LANGUAGE) -r $(INPUTDIR)/body
+
 clean:
 	rm -rf $(OUTPUTDIR)
 	mkdir $(OUTPUTDIR)
 
-.PHONY: help pdf docx html tex wc
+.PHONY: help pdf docx html tex wc spellcheck
