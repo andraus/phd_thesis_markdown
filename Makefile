@@ -14,16 +14,16 @@ help:
 	@echo 'Makefile for the Markdown thesis                                         						 '
 	@echo '                                                                         						 '
 	@echo 'Usage:                                                                   						 '
-	@echo '   make html                        							generate a web version  			 '
-	@echo '   make pdf                         							generate a PDF file  			     '
-	@echo '   make pdf pandoc-toc=yes                        			generate a PDF file with pandoc toc  '
-	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT			generate a PDF file wit front matter '
-	@echo '   make docx	                       							generate a Docx file 			     '
-	@echo '   make tex	                       							generate a Latex file 			     '
-	@echo '   make tex custom-frontmatter=yes 								generate a PDF file with front matter'
-	@echo '   make wc                                         output word count for every .md file under src/body '
-	@echo '   make spellcheck                                 checks grammar using languagetool (autodetect language) '
-	@echo '   make spellcheck lang=en-GB                      checks grammar using language tool '
+	@echo '   make html                        													generate a web version  			 '
+	@echo '   make pdf                         													generate a PDF file  			     '
+	@echo '   make pdf pandoc-toc=yes                        						generate a PDF file with pandoc toc  '
+	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT				generate a PDF file wit front matter '
+	@echo '   make docx	                       													generate a Docx file 			     '
+	@echo '   make tex	                       													generate a Latex file 			     '
+	@echo '   make tex custom-frontmatter=yes 													generate a PDF file with front matter'
+	@echo '   make wc                                         					output word count for every .md file under src/body '
+	@echo '   make spellcheck                                 					checks grammar using languagetool (autodetect language) '
+	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES"     checks grammar using language tool with options'
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -67,6 +67,12 @@ else
   LANGUAGE = -l $(lang)
 endif
 
+ifndef opts
+	OPTS = 
+else
+	OPTS = $(opts)
+endif
+
 BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
 
@@ -83,6 +89,7 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	--csl=$(CSL) \
 	--highlight-style pygments \
 	-N \
+	--number-sections \
 	--filter pandoc-crossref \
 	$(DEFAULT_FM)
 
@@ -134,7 +141,7 @@ wc:
 	@wc -w $(BODY)
 
 spellcheck:
-	languagetool $(LANGUAGE) -r $(INPUTDIR)/body
+	languagetool $(OPTS) $(LANGUAGE) -r $(INPUTDIR)/body
 
 clean:
 	rm -rf $(OUTPUTDIR)
