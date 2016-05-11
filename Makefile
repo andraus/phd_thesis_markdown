@@ -88,7 +88,6 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl=$(CSL) \
 	--highlight-style pygments \
-	-N \
 	--number-sections \
 	--filter pandoc-crossref \
 	$(DEFAULT_FM)
