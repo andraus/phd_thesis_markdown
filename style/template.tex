@@ -205,12 +205,14 @@ $endif$
 $if(author)$
 \author{
   $for(author)$
-    $author.name$ 
+    \textbf{$author.name$}
+    $if(author.affiliation)$
+    $for(author.affiliation)$
+    \\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}
+    $endfor$
+    $endif$
     $if(author.email)$
     \\ \normalsize\texttt{$author.email$}
-    $endif$
-    $if(author.affiliation)$
-    \\ \normalsize{$author.affiliation$}
     $endif$
   \and 
   $endfor$}
@@ -219,6 +221,7 @@ $endif$
 
 %% Custom section
 %% Meta data -> latex commands
+
 $if(default_frontmatter)$
 $else$
   $if(author)$
@@ -255,7 +258,6 @@ $endif$
 }
 
 %% end custom section
-
 \begin{document}
 $if(default_frontmatter)$
 $if(title)$
@@ -266,7 +268,7 @@ $if(institute)$
 $endif$
 $if(abstract)$
 \begin{abstract}
-$abstract$
+\noindent\textbf{Abstract: }$abstract$
 \\
 \smallskip
 \\

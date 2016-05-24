@@ -145,7 +145,7 @@ aparecera a expess o 'et. al.'. Na regra da ABNT essa expressao deve aparecer em
 do autor. Na regra da ABNT o sobrenome deve aparecer com todas as letras em caixa alta-->
   <macro name="author-short">
     <names variable="author">
-      <name form="short" name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="never">
+      <name form="short" name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter=" &amp; " delimiter-precedes-last="never">
         <name-part name="family" text-case="capitalize-first"/>
         <name-part name="given" text-case="capitalize-first"/>
       </name>
@@ -180,13 +180,13 @@ autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo
         <text variable="title"/>
       </if>
       <else-if type="book thesis" match="any">
-        <text variable="title" font-style="italic"/>
+        <text variable="title" font-style="italic" text-case="title"/>
       </else-if>
       <else-if type="article-newspaper article-magazine article-journal chapter" match="any">
-        <text variable="title" prefix="“" suffix="”"/>
+        <text variable="title" prefix="“" suffix="”" text-case="title"/>
       </else-if>
       <else>
-        <text variable="title" prefix="“" suffix="”"/>  
+        <text variable="title" prefix="“" suffix="”" text-case="title"/>  
       </else>
     </choose>
   </macro>
@@ -199,7 +199,7 @@ autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo
         <text value="..."/>
       </if>
       <else>
-        <text variable="container-title" font-style="italic"/>
+        <text variable="container-title" font-style="italic" text-case="title"/>
       </else>
     </choose>
   </macro>
@@ -355,7 +355,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
     </choose>
   </macro>
   <macro name="collection-title">
-    <text variable="collection-title"/>
+    <text variable="collection-title" text-case="title"/>
     <text variable="collection-number" prefix=" "/>
   </macro>
   <macro name="genre">
