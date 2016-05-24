@@ -5,12 +5,8 @@ References are automatically generated from the BibTex file (References.bib)
 
 ...which you should create using your reference manager.
 -->
-
-\thispagestyle{empty}
-
+# References {-}
 \configreferencesparagraph
 \noindent
 \footnotesize
 
-\begin{thebibliography}{}
-\end{thebibliography}
