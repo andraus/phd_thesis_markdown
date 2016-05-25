@@ -199,29 +199,32 @@ $endfor$
 \setkomafont{title}{\bfseries}
 \setkomafont{sectionentry}{\bfseries}
 
-$if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-$endif$
-$if(subtitle)$
-\subtitle{$subtitle$}
-$endif$
-$if(author)$
-\author{
-  $for(author)$
-    \textbf{$author.name$}
-    $if(author.affiliation)$
-    $for(author.affiliation)$
-    \\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}
+$if(blindreview)$
+$else$
+  $if(title)$
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  $endif$
+  $if(subtitle)$
+  \subtitle{$subtitle$}
+  $endif$
+  $if(author)$
+  \author{
+    $for(author)$
+      \textbf{$author.name$}
+      $if(author.affiliation)$
+      $for(author.affiliation)$
+      \\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}
+      $endfor$
+      $endif$
+      $if(author.email)$
+      \\ \normalsize\texttt{$author.email$}
+      $endif$
+    \and 
     $endfor$
-    $endif$
-    $if(author.email)$
-    \\ \normalsize\texttt{$author.email$}
-    $endif$
-  \and 
-  $endfor$
-}
-$endif$
+  }
+  $endif$
 \date{$date$}
+$endif$
 
 %% Custom section
 %% Meta data -> latex commands
