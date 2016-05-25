@@ -215,7 +215,8 @@ $if(author)$
     \\ \normalsize\texttt{$author.email$}
     $endif$
   \and 
-  $endfor$}
+  $endfor$
+}
 $endif$
 \date{$date$}
 
@@ -267,15 +268,16 @@ $if(institute)$
 \publishers{$institute$}
 $endif$
 $if(abstract)$
-\begin{abstract}
+\begin{abstract-flushleft}
+
 \noindent\textbf{Abstract: }$abstract$
+$if(keywords)$
 \\
 \smallskip
 \\
-$if(keywords)$
 $for(keywords)$$keywords$$sep$ \and $endfor$
 $endif$
-\end{abstract}
+\end{abstract-flushleft}
 $endif$
 $endif$
 

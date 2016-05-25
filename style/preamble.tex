@@ -76,6 +76,58 @@
 % \subsectionfont{\rmfamily\mdseries\scshape\large}
 % \subsubsectionfont{\rmfamily\bfseries\upshape\large}
 
+
+%% BLOCK custom maketitle and abstract
+%% goal: align to the left and ocupy the whole text area, instead of centering
+%% to center to the default layout of scrartcl, remove the redefinition blocks below
+
+
+%% patching maketitle to flushleft content
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\begin{center}}{\begin{flushleft}}{}{}
+\patchcmd{\@maketitle}{\begin{tabular}[t]{c}}{\begin{tabular}[t]{@{}l}}{}{}
+\patchcmd{\@maketitle}{\end{center}}{\end{flushleft}}{}{}
+\makeatother
+
+
+%% new {abstract-flushleft} environment
+\newenvironment{abstract-flushleft}{%
+  \if@titlepage
+    \titlepage
+    \null\vfil
+    \@beginparpenalty\@lowpenalty
+    \if@abstrt
+      \begin{flushleft}
+        \normalfont\sectfont\nobreak\abstractname
+        \@endparpenalty\@M
+      \end{flushleft}
+    \fi
+  \else
+    \if@twocolumn\if@abstrt
+        \addsec*{\abstractname}
+      \fi
+      \quotation
+    \else
+      \if@abstrt
+        \par\small\noindent%
+          {\normalfont\sectfont\nobreak\abstractname\par\vspace{.5em}}%
+      \fi
+    \fi
+  \fi
+}{%
+  \if@titlepage
+    \par\vfil\null\endtitlepage
+  \else
+    \if@twocolumn\else\endquotation\fi
+  \fi
+}
+
+%%
+%% end redefinition of maketitle and abstract
+%%
+
+
 \usepackage{titlesec}
 
 \titleformat{\chapter}[block]
