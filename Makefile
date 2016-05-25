@@ -10,13 +10,14 @@ STYLEDIR=$(BASEDIR)/style
 BIBFILE=$(INPUTDIR)/references.bib
 
 help:
-	@echo ' 																	    						 '
-	@echo 'Makefile for the Markdown thesis                                         						 '
-	@echo '                                                                         						 '
+	@echo ' '
+	@echo 'Makefile for the Markdown thesis '
+	@echo ' '
 	@echo 'Usage:                                                                   						 '
 	@echo '   make html                        							generate a web version'
 	@echo '   make pdf                         							generate a PDF file'
 	@echo '   make pdf blind=y															generate a PDF file for blind review'
+	@echo '   make pdf engine=pdflatex											generate a PDF with different engine'
 	@echo '   make pdf pandoc-toc=yes                       generate a PDF file with pandoc toc'
 	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT generate a PDF file wit front matter'
 	@echo '   make docx	                       							generate a Docx file'
@@ -52,6 +53,12 @@ else ifneq (,$(findstring $(bibstyle),abnt-ABNT))
 else
   ## default
   CSL = $(STYLEDIR)/csl/associacao-brasileira-de-normas-tecnicas.csl
+endif
+
+ifndef engine
+  ENGINE = xelatex
+else
+	ENGINE = $(engine)
 endif
 
 ifneq (,$(findstring $(blind),yes-y-on))
@@ -112,7 +119,7 @@ pdf: clean
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
-	--latex-engine=xelatex \
+	--latex-engine=$(ENGINE) \
 	--verbose
 
 tex: clean
@@ -120,7 +127,7 @@ tex: clean
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.tex" \
-	--latex-engine=xelatex
+	--latex-engine=$(ENGINE)
 
 docx: clean
 	pandoc \
