@@ -14,7 +14,6 @@ university:
     institute: Instituto de Filosofia e Ciências Humanas
     logo: logo-unicamp.eps
     city: Campinas
-institute: "Universidade Estadual de Campinas"
 thanks: "Grants or other notes in front page"
 
 abstract: 'Será possível escrever um abstract enorme em uma simples propriedade yaml? Acho meio estranho... Enfim.'
