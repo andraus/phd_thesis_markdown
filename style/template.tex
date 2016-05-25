@@ -61,14 +61,17 @@ $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 $endif$
 \hypersetup{unicode=true,
-$if(title)$
-            pdftitle={$title$ $if(subtitle)$$subtitle$$endif$},
-$endif$
-$if(author)$
-            pdfauthor={$for(author)$$author.name$$sep$; $endfor$},
-$endif$
-$if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
+$if(blindreview)$
+$else$
+  $if(title)$
+              pdftitle={$title$ $if(subtitle)$$subtitle$$endif$},
+  $endif$
+  $if(author)$
+              pdfauthor={$for(author)$$author.name$$sep$; $endfor$},
+  $endif$
+  $if(keywords)$
+              pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
+  $endif$
 $endif$
 $if(colorlinks)$
             colorlinks=true,
@@ -260,25 +263,28 @@ $endif$
 
 %% end custom section
 \begin{document}
-$if(default_frontmatter)$
-$if(title)$
-\maketitle
-$endif$
-$if(institute)$
-\publishers{$institute$}
-$endif$
-$if(abstract)$
-\begin{abstract-flushleft}
+$if(blindreview)$
+$else$
+  $if(default_frontmatter)$
+  $if(title)$
+  \maketitle
+  $endif$
+  $if(institute)$
+  \publishers{$institute$}
+  $endif$
+  $if(abstract)$
+  \begin{abstract-flushleft}
 
-\noindent\textbf{Abstract: }$abstract$
-$if(keywords)$
-\\
-\smallskip
-\\
-$for(keywords)$$keywords$$sep$ \and $endfor$
-$endif$
-\end{abstract-flushleft}
-$endif$
+  \noindent\textbf{Abstract: }$abstract$
+  $if(keywords)$
+  \\
+  \smallskip
+  \\
+  $for(keywords)$$keywords$$sep$ \and $endfor$
+  $endif$
+  \end{abstract-flushleft}
+  $endif$
+  $endif$
 $endif$
 
 \newpage
