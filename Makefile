@@ -14,16 +14,17 @@ help:
 	@echo 'Makefile for the Markdown thesis                                         						 '
 	@echo '                                                                         						 '
 	@echo 'Usage:                                                                   						 '
-	@echo '   make html                        													generate a web version  			 '
-	@echo '   make pdf                         													generate a PDF file  			     '
-	@echo '   make pdf pandoc-toc=yes                        						generate a PDF file with pandoc toc  '
-	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT				generate a PDF file wit front matter '
-	@echo '   make docx	                       													generate a Docx file 			     '
-	@echo '   make tex	                       													generate a Latex file 			     '
-	@echo '   make tex custom-frontmatter=yes 													generate a PDF file with front matter'
-	@echo '   make wc                                         					output word count for every .md file under src/body '
-	@echo '   make spellcheck                                 					checks grammar using languagetool (autodetect language) '
-	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES"     checks grammar using language tool with options'
+	@echo '   make html                        							generate a web version'
+	@echo '   make pdf                         							generate a PDF file'
+	@echo '   make pdf blind=y															generate a PDF file for blind review'
+	@echo '   make pdf pandoc-toc=yes                       generate a PDF file with pandoc toc'
+	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT generate a PDF file wit front matter'
+	@echo '   make docx	                       							generate a Docx file'
+	@echo '   make tex	                       							generate a Latex file'
+	@echo '   make tex custom-frontmatter=yes 							generate a PDF file with front matter'
+	@echo '   make wc                                       output word count for every .md file under src/body '
+	@echo '   make spellcheck                               checks grammar using languagetool (autodetect language) '
+	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES" checks grammar using language tool with options'
 	@echo '                                                                         						 '
 	@echo '																									 '
 	@echo 'Supported citation styles (bibstyle): 															 '
@@ -51,6 +52,12 @@ else ifneq (,$(findstring $(bibstyle),abnt-ABNT))
 else
   ## default
   CSL = $(STYLEDIR)/csl/associacao-brasileira-de-normas-tecnicas.csl
+endif
+
+ifneq (,$(findstring $(blind),yes-y-on))
+	BLIND_REVIEW = "--metadata=blindreview:on"
+else
+	BLIND_REVIEW = 
 endif
 
 ifneq (,$(findstring $(custom-frontmatter),yes-y-on))
@@ -90,6 +97,7 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	--highlight-style pygments \
 	--number-sections \
 	--filter pandoc-crossref \
+	$(BLIND_REVIEW) \
 	$(DEFAULT_FM)
 
 
