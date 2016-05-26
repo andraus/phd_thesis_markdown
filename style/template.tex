@@ -199,14 +199,14 @@ $endfor$
 \setkomafont{title}{\bfseries}
 \setkomafont{sectionentry}{\bfseries}
 
+$if(title)$
+\title{$title$$if(blindreview)$$else$$if(thanks)$\thanks{$thanks$}$endif$$endif$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
 $if(blindreview)$
 $else$
-  $if(title)$
-  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-  $endif$
-  $if(subtitle)$
-  \subtitle{$subtitle$}
-  $endif$
   $if(author)$
   \author{
     $for(author)$
@@ -223,8 +223,8 @@ $else$
     $endfor$
   }
   $endif$
-\date{$date$}
 $endif$
+\date{$date$}
 
 %% Custom section
 %% Meta data -> latex commands
@@ -266,25 +266,22 @@ $endif$
 
 %% end custom section
 \begin{document}
-$if(blindreview)$
-$else$
-  $if(default_frontmatter)$
-  $if(title)$
-  \maketitle
-  $endif$
-  $if(abstract)$
-  \begin{abstract-flushleft}
+$if(default_frontmatter)$
+$if(title)$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract-flushleft}
 
-  \noindent\textbf{Abstract: }$abstract$
-  $if(keywords)$
-  \\
-  \smallskip
-  \\
-  $for(keywords)$$keywords$$sep$ \and $endfor$
-  $endif$
-  \end{abstract-flushleft}
-  $endif$
-  $endif$
+\noindent\textbf{Abstract: }$abstract$
+$if(keywords)$
+\\
+\smallskip
+\\
+$for(keywords)$$keywords$$sep$ \and $endfor$
+$endif$
+\end{abstract-flushleft}
+$endif$
 $endif$
 
 \newpage
