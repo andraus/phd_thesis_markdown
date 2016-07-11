@@ -45,6 +45,8 @@ papersize: a4
 indent: '2.0cm'
 linestretch: 1.5
 
+numbers: endperiod
+
 ## toc-depth: 3
 
 ## ###############################

@@ -128,37 +128,8 @@
 %% end redefinition of maketitle and abstract
 %%
 
-
-\usepackage{titlesec}
-
-\titleformat{\chapter}[block]
-  {\huge\rmfamily}
-  {\thechapter.}
-  {15pt}
-  {\phantomsection}
-  
-\titlespacing*{\chapter}
-  {0pt}
-  {-32pt} %% space before title
-  {16pt} %% space after title
-
-\titleformat{\section}[block]
-  {\large\bfseries\rmfamily}
-  {\thesection.}
-  {10pt}
-  {\phantomsection}
-
-\titleformat{\subsection}[block]
-  {\bfseries\rmfamily}
-  {\thesubsection.}
-  {10pt}
-  {\phantomsection}
-
-\titleformat{\subsubsection}[block]
-  {\bfseries\rmfamily}
-  {\thesubsubsection.}
-  {10pt}
-  {\phantomsection}
+%% Set font for all sections, chapters, etc. in koma script
+\addtokomafont{disposition}{\rmfamily}
 
 %% long quote formatting
 
