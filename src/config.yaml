@@ -25,6 +25,9 @@ keywords: '\textbf{Palavras-chave: }um; dois; três.'
 ## ####################
 documentclass: scrartcl
 
+classoption:
+    - "headheight=21.75pt"
+
 geometry: "top=3cm, bottom=2cm, left=3cm, right=2cm"
 
 ## lang for pandoc-citeproc
