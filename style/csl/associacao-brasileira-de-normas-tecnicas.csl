@@ -106,13 +106,17 @@ tendo as inicias separadas por ponto.-->
   <!--A macro 'translator' e responsavel por mostrar os nomes dos tradutores, serao apresentados SOBRENOME, INICIAIS PRENOMES
 tendo as inicias separadas por ponto. -->
   <macro name="translator">
-    <text value="Traducao "/>
-    <names variable="translator" delimiter="; ">
-      <name delimiter="; " sort-separator=" " delimiter-precedes-last="always">
-        <name-part name="given" text-case="capitalize-first"/>
-        <name-part name="family" text-case="capitalize-first"/>
-      </name>
-    </names>
+    <choose>
+      <if variable="translator">
+        <text value="Tradução: "/>
+        <names variable="translator" delimiter=". ">
+          <name delimiter="; " sort-separator=" " delimiter-precedes-last="always">
+            <name-part name="given" text-case="capitalize-first"/>
+            <name-part name="family" text-case="capitalize-first"/>
+          </name>
+        </names>
+      </if>
+    </choose>
   </macro>
   <!--A macro 'author' e responsavel por mostrar os nomes dos autores na bibliografia, serao no formato SOBRENOME, INICIAIS PRENOMES, tendo 
 as inicias separadas por ponto. Quando houver mais de tres autores, somente o primeiro sera mostrado e no lugar dos outros
