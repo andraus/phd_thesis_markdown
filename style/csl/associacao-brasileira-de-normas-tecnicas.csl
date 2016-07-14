@@ -176,7 +176,7 @@ autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo
       <else-if type="book thesis" match="any">
         <text variable="title" font-weight="bold"/>
       </else-if>
-      <else-if type="article-newspaper article-magazine article-journal" match="any">
+      <else-if type="article-newspaper article-magazine article-journal webpage" match="any">
         <text variable="title"/>
       </else-if>
       <else>
@@ -523,6 +523,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Autor-->
             <text macro="title" suffix=". "/>
             <!--Titulo-->
+            <text macro="container-title" suffix=". "/>
+            <!--Titulo da publicacao-->
             <text macro="genre" suffix=". "/>
             <text macro="access" suffix=". "/>
             <!--URL, data do acesso-->
