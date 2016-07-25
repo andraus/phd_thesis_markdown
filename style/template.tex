@@ -204,6 +204,14 @@ $endfor$
 \setkomafont{title}{\bfseries}
 \setkomafont{sectionentry}{\bfseries}
 
+$if(chapterprefix)$
+  \renewcommand*{\thesection}{Capítulo~\arabic{section}:}
+$else$
+  \renewcommand*{\thesection}{\arabic{section}.}
+$endif$
+\renewcommand*{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+\renewcommand*{\thesubsubsection}{\thesubsection{}\arabic{subsection}.}
+
 $if(title)$
 \title{$title$$if(blindreview)$$else$$if(thanks)$\thanks{$thanks$}$endif$$endif$}
 $endif$

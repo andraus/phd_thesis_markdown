@@ -48,7 +48,9 @@ papersize: a4
 indent: '2.0cm'
 linestretch: 1.5
 
-numbers: endperiod
+## numbers: endperiod
+
+chapterprefix: Capítulo
 
 ## toc-depth: 3
 
