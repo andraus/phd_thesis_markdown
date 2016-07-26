@@ -52,7 +52,7 @@ linestretch: 1.5
 
 chapter:
     prefix: Capítulo
-    suffix: ':'
+    suffix:
 
 ## toc-depth: 3
 
