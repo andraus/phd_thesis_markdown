@@ -50,7 +50,9 @@ linestretch: 1.5
 
 ## numbers: endperiod
 
-chapterprefix: Capítulo
+chapter:
+    prefix: Capítulo
+    suffix: ':'
 
 ## toc-depth: 3
 

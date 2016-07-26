@@ -200,17 +200,57 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+%% BEGIN - Customizations for Section / Chapter Prexix + ToC adjustments for it
+%%
+%% ok, this block below made me regret the decision of using koma-script and scrartcl,
+%% almost to the point of rolling back to regular latex classes... Eventually I got
+%% the desired result, but maybe in the future I should abandon koma-script since 
+%% it's insanely obscure how to customize this stuff.
+%%
 
 \setkomafont{title}{\bfseries}
 \setkomafont{sectionentry}{\bfseries}
 
-$if(chapterprefix)$
-  \renewcommand*{\thesection}{Capítulo~\arabic{section}:}
+$if(chapter)$
+
+  \newcommand*{\ChapPrefix}{$chapter.prefix$}
+  \newcommand*{\ChapSuffix}{$chapter.suffix$}
+
+  %% koma-script config for TOC with custom prefix
+  \newcommand*{\FixBy}[3]{#1~#3#2~}
+  \DeclareTOCStyleEntry[%
+    % indent=0pt,
+    dynnumwidth=true,
+    numsep=0.0em,
+    entrynumberformat=\FixBy{\ChapPrefix}{\ChapSuffix},
+    % breakafternumber=on,
+    linefill=\TOCLineLeaderFill,
+  ]{section}{section}
+
+
+  %% koma-script config for prefix in numbered sections, like "Chapter 1"
+  \makeatletter
+  \renewcommand{\sectionlinesformat}[4]{%
+  \ifstr{#1}{section}{%
+    \hspace*{#2}%
+    \parbox{\dimexpr\linewidth-#2\relax}{\raggedsection
+      \ifstr{#3}{}{}{\ChapPrefix \phantom{ }#3\\}%
+      #4}\par%
+    }{%
+      \@hangfrom{\hskip #2#3}{#4}}% 
+  }
+  \makeatother
+
 $else$
-  \renewcommand*{\thesection}{\arabic{section}.}
+
+    \renewcommand*\sectionformat{\thesection. \autodot}
+
 $endif$
-\renewcommand*{\thesubsection}{\arabic{section}.\arabic{subsection}.}
-\renewcommand*{\thesubsubsection}{\thesubsection{}\arabic{subsection}.}
+
+\renewcommand*\subsectionformat{\thesubsection. \autodot}
+\renewcommand*\subsubsectionformat{\thesubsubsection. \autodot}
+
+%% END - Customizations for Section / Chapter Prexix + ToC adjustments for it
 
 $if(title)$
 \title{$title$$if(blindreview)$$else$$if(thanks)$\thanks{$thanks$}$endif$$endif$}
