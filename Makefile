@@ -18,11 +18,12 @@ help:
 	@echo '   make pdf                         							generate a PDF file'
 	@echo '   make pdf blind=y															generate a PDF file for blind review'
 	@echo '   make pdf engine=pdflatex											generate a PDF with different engine'
-	@echo '   make pdf pandoc-toc=yes                       generate a PDF file with pandoc toc'
-	@echo '   make pdf custom-frontmatter=yes bibstyle=abnt-ABNT generate a PDF file wit front matter'
+	@echo '   make pdf toc=yes                       				generate a PDF file with pandoc toc'
+	@echo '   make pdf frontmatter=yes bibstyle=abnt-ABNT 	generate a PDF file wit front matter'
+	@echo '   make pdf no-draft=y														generate a PDF without draft content'
 	@echo '   make docx	                       							generate a Docx file'
 	@echo '   make tex	                       							generate a Latex file'
-	@echo '   make tex custom-frontmatter=yes 							generate a PDF file with front matter'
+	@echo '   make tex frontmatter=yes 											generate a PDF file with front matter'
 	@echo '   make wc                                       output word count for every .md file under src/body '
 	@echo '   make spellcheck                               checks grammar using languagetool (autodetect language) '
 	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES" checks grammar using language tool with options'
@@ -67,7 +68,7 @@ else
 	BLIND_REVIEW = 
 endif
 
-ifneq (,$(findstring $(custom-frontmatter),yes-y-on))
+ifneq (,$(findstring $(frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
   DEFAULT_FM =
 else
@@ -87,7 +88,12 @@ else
 	OPTS = $(opts)
 endif
 
-BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
+ifneq (,$(findstring $(no-draft),yes-y-on))
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md')
+else
+  BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
+endif
+
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
 
 PATHS = $(FRONTMATTER) \
@@ -108,7 +114,7 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	$(DEFAULT_FM)
 
 
-ifneq (,$(findstring $(pandoc-toc),yes-y-on))
+ifneq (,$(findstring $(toc),yes-y-on))
   PANDOC_TOC = "--toc"
 else
   PANDOC_TOC =
