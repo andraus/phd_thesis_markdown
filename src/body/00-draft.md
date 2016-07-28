@@ -1,6 +1,6 @@
 # Draft ideas {-}
 
-This file will **not** be compiled by default. To compile it, use `with-draft` switch.  
+This file will be compiled by default. To compile it, use `no-draft` switch.
 
 ## Idea 1
 
