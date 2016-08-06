@@ -16,7 +16,7 @@ university:
     city: Campinas
 thanks: "Grants or other notes in front page"
 
-abstract: 'Será possível escrever um abstract enorme em uma simples propriedade yaml? Acho meio estranho... Enfim.'
+abstract: '\textbf{Abstract:} Será possível escrever um abstract enorme em uma simples propriedade yaml? Acho meio estranho... Enfim.'
 
 keywords: '\textbf{Palavras-chave: }um; dois; três.'
 
