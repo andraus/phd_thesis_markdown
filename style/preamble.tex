@@ -60,49 +60,19 @@
 %% to center to the default layout of scrartcl, remove the redefinition blocks below
 
 %% patching maketitle to flushleft content
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\@maketitle}{\begin{center}}{\begin{flushleft}}{}{}
-\patchcmd{\@maketitle}{\begin{tabular}[t]{c}}{\begin{tabular}[t]{@{}l}}{}{}
-\patchcmd{\@maketitle}{\end{center}}{\end{flushleft}}{}{}
-\makeatother
 
 
 %% new {abstract-flushleft} environment
 \newenvironment{abstract-flushleft}{%
-  \if@titlepage
-    \titlepage
-    \null\vfil
-    \@beginparpenalty\@lowpenalty
-    \if@abstrt
-      \begin{flushleft}
-        \normalfont\sectfont\nobreak\abstractname
-        \@endparpenalty\@M
-      \end{flushleft}
-    \fi
-  \else
-    \if@twocolumn\if@abstrt
-        \addsec*{\abstractname}
-      \fi
-      \quotation
-    \else
-      \if@abstrt
-        \par\small\noindent%
-          {\normalfont\sectfont\nobreak\abstractname\par\vspace{.5em}}%
-      \fi
-    \fi
-  \fi
-}{%
-  \if@titlepage
-    \par\vfil\null\endtitlepage
-  \else
-    \if@twocolumn\else\endquotation\fi
-  \fi
 }
 
 %%
 %% end redefinition of maketitle and abstract
 %%
+
+\setkomafont{title}{\normalfont}
+\setkomafont{subject}{\normalfont}
+% \setkomafont{sectionentry}{\bfseries}
 
 %% Set font for all sections, chapters, etc. in koma script
 \addtokomafont{disposition}{\rmfamily}
@@ -113,12 +83,6 @@
   {\small\singlespacing\list{}{\rightmargin=0cm \leftmargin=4.0cm}%
    \item\relax}
   {\endlist}
-
-% Chapter header
-% \usepackage{titlesec, blindtext, color}
-% \definecolor{gray75}{gray}{0.75}
-% \newcommand{\hsp}{\hspace{20pt}}
-% \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 
 % \sectionfont{\rmfamily\mdseries\Large}

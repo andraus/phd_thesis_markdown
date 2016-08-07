@@ -208,9 +208,6 @@ $endfor$
 %% it's insanely obscure how to customize this stuff.
 %%
 
-\setkomafont{title}{\bfseries}
-\setkomafont{sectionentry}{\bfseries}
-
 $if(chapter)$
 
   \newcommand*{\ChapPrefix}{$chapter.prefix$}
@@ -253,6 +250,7 @@ $endif$
 %% END - Customizations for Section / Chapter Prexix + ToC adjustments for it
 
 $if(title)$
+$if(subject)$\subject{$subject$}$endif$
 \title{$title$$if(blindreview)$$else$$if(thanks)$\thanks{$thanks$}$endif$$endif$}
 $endif$
 $if(subtitle)$
@@ -262,18 +260,11 @@ $if(blindreview)$
 $else$
   $if(author)$
   \author{
-    $for(author)$
-      \textbf{$author.name$}
-      $if(author.affiliation)$
-      $for(author.affiliation)$
-      \\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}
-      $endfor$
-      $endif$
-      $if(author.email)$
-      \\ \normalsize\texttt{$author.email$}
-      $endif$
-    \and 
-    $endfor$
+    $for(author)$$author.name$
+    $if(author.affiliation)$
+    $for(author.affiliation)$\\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}$endfor$
+    $endif$
+    $if(author.email)$\\ \normalsize\texttt{$author.email$}$endif$$if(multiauthors)$ \and $endif$$endfor$
   }
   $endif$
 $endif$
