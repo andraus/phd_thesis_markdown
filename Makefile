@@ -15,16 +15,25 @@ help:
 	@echo ' '
 	@echo 'Usage:'
 	@echo '   make html                                                 generate a web version'
+	@echo ' '
 	@echo '   make pdf                                                  generate a PDF file'
 	@echo '   make pdf blind=y                                          generate a PDF file for blind review'
 	@echo '   make pdf engine=pdflatex                                  generate a PDF with different engine'
 	@echo '   make pdf toc=yes                                          generate a PDF file with pandoc toc'
 	@echo '   make pdf frontmatter=yes bibstyle=abnt-ABNT               generate a PDF file wit front matter'
 	@echo '   make pdf no-draft=y                                       generate a PDF without draft content'
+	@echo ' '
 	@echo '   make docx                                                 generate a Docx file'
+	@echo '   make docx-thesis                                          generate a Docx file using thesis template'
+	@echo '   make docx-article                                         generate a Docx file using article template'
+	@echo '   make template=<custom> docx                              generate a Docx file using a <custom> template'
+	@echo ' '
 	@echo '   make tex                                                  generate a Latex file'
 	@echo '   make tex frontmatter=yes                                  generate a PDF file with front matter'
+	@echo ' '
 	@echo '   make wc                                                   output word count for every .md file under src/body'
+	@echo '   make cc                                                   output character count for every .md file under src/body'
+	@echo ' '
 	@echo '   make spellcheck                                           checks grammar using languagetool (autodetect language)'
 	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES"     checks grammar using language tool with options'
 	@echo ''
@@ -88,6 +97,12 @@ else
 	OPTS = $(opts)
 endif
 
+ifndef template
+	TEMPLATE = thesis
+else
+	TEMPLATE = $(template)
+endif
+
 ifneq (,$(findstring $(no-draft),yes-y-on))
 	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md')
 else
@@ -139,8 +154,14 @@ docx: clean
 	pandoc \
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
-	--reference-docx template.docx \
+	--reference-docx style/docx_templates/${TEMPLATE}.docx \
 	-o "$(OUTPUTDIR)/thesis.docx"
+
+docx-thesis: clean
+	$(MAKE) template=thesis docx
+
+docx-article: clean
+	$(MAKE) template=article docx
 
 html:
 	pandoc \
@@ -159,6 +180,9 @@ html:
 
 wc:
 	@wc -w $(BODY)
+
+cc:
+	@wc -m $(BODY)
 
 spellcheck:
 	languagetool $(OPTS) $(LANGUAGE) -r $(INPUTDIR)/body
