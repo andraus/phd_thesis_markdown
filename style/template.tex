@@ -261,11 +261,17 @@ $else$
   $if(author)$
   \author{
     $for(author)$$author.name$
-    $if(author.affiliation)$
-    $for(author.affiliation)$\\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}$endfor$
-    $endif$
-    $if(author.email)$\\ \normalsize\texttt{$author.email$}$endif$$if(multiauthors)$ \and $endif$$endfor$
+      $if(author.affiliation)$
+      \thanks{$author.affiliation$}
+      $endif$$if(multiauthors)$ \and $endif$$endfor$
   }
+%  \author{
+%    $for(author)$$author.name$
+%    $if(author.affiliation)$
+%    $for(author.affiliation)$\\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}$endfor$
+%    $endif$
+%    $if(author.email)$\\ \normalsize\texttt{$author.email$}$endif$$if(multiauthors)$ \and $endif$$endfor$
+%  }
   $endif$
 $endif$
 \date{$date$}

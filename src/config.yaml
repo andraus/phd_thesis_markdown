@@ -9,10 +9,8 @@ subject: 'Algum assunto'
 multiauthors: 'yes'
 author: 
     - name: Nome1 Sobrenome1
-      email: nome1@institution.org
-      affiliation: University of Knowledge
+      affiliation: "University of Knowledge, e-mail: someone@somewhere"
     - name: 'Nome2 Sobrenome2'
-      email: 'nome2@institution'
       affiliation: 'University of Science'
 university:
     name: Universidade Estadual de Campinas
