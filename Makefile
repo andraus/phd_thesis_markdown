@@ -103,10 +103,10 @@ else
 	TEMPLATE = $(template)
 endif
 
-ifneq (,$(findstring $(no-draft),yes-y-on))
-	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md')
-else
+ifneq (,$(findstring $(draft),yes-y-on))
   BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
+else
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md')
 endif
 
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md

@@ -229,13 +229,9 @@ $if(chapter)$
   \makeatletter
   \renewcommand{\sectionlinesformat}[4]{%
   \ifstr{#1}{section}{%
-    \hspace*{#2}%
-    \parbox{\dimexpr\linewidth-#2\relax}{\raggedsection
-      \ifstr{#3}{}{}{\ChapPrefix \phantom{ }#3\\}%
-      #4}\par%
-    }{%
-      \@hangfrom{\hskip #2#3}{#4}}% 
-  }
+    \ifstr{#3}{}{}{\ChapPrefix \phantom{ }#3\hfill\break}%
+    #4%
+  }{\@hangfrom{\hskip #2#3}{#4}}}
   \makeatother
 
 $else$
