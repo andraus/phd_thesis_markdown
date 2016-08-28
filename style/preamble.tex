@@ -26,7 +26,15 @@
 % or use \extrafloats{100}
 % add some \clearpage
 
+%% begin: float and subfigure stylings for ABNT
+\usepackage{subfig}
 
+\usepackage{floatrow}
+\floatsetup[figure]{style=plaintop}
+\floatsetup[table]{margins=centering}
+
+\captionsetup[subfloat]{position=bottom,labelformat=empty, justification=centering, width=0.8\textwidth}
+%% end: float and subfigure stylings for ABNT
 
 % % Fonts and typesetting
 % \setmainfont[Scale=1.1]{Helvetica}
