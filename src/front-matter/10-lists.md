@@ -33,6 +33,7 @@ The latex-heavy block below is a hack to prevent page numbering to commands
 
 \pagestyle{empty}
 \listoffigures
+\cleardoublepage
 \listoftables
 \cleardoublepage
 \endgroup
