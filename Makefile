@@ -104,9 +104,9 @@ else
 endif
 
 ifneq (,$(findstring $(draft),yes-y-on))
-  BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md')
+  BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' | sort)
 else
-	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md')
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md' | sort)
 endif
 
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
