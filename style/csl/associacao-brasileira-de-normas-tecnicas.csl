@@ -464,6 +464,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Local, data, etc-->
             <text macro="locators" suffix=". "/>
             <!--Dados complementares "pagina, volume"-->
+            <text macro="access" suffix=". "/>
           </group>
         </else-if>
         <!--Artigo de revista, jornal, etc-->
