@@ -385,7 +385,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
   </citation>
   <!--Bibliografia-->
   <!--et al. aparece a partir de 04 autores-->
-  <bibliography hanging-indent="false" et-al-min="4" et-al-use-first="1" entry-spacing="1">
+  <bibliography hanging-indent="false" et-al-min="4" et-al-use-first="1" entry-spacing="1" subsequent-author-substitute="––––––">
     <sort>
       <key macro="author"/>
       <!--Puxa o autor primeiro-->
