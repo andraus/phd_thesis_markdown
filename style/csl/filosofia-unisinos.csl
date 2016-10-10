@@ -263,6 +263,25 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
   </macro>
   <!--A macro 'issued' e utilizada quando devemos mostrar a data completa exemplo: 03 mar. 2011.-->
   <macro name="issued">
+    <!-- original date / -->
+    <choose>
+      <if variable="original-date" match="any">
+        <group>
+          <choose>
+            <if type="book chapter" match="none">
+              <date variable="original-date">
+                <date-part name="day" suffix="/"/>
+                <date-part name="month" form="short" suffix="/"/>
+              </date>
+            </if>
+          </choose>
+          <date variable="original-date">
+            <date-part name="year" suffix="/"/>
+          </date>
+        </group>
+      </if>
+    </choose>
+    <!-- date -->
     <choose>
       <if variable="issued" match="any">
         <group>
@@ -295,6 +314,13 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
   </macro>
   <!--A macro 'issued' e utilizada quando desejamos que apareca apenas o ano-->
   <macro name="issued-year">
+    <choose>
+      <if variable="original-date" match="any">
+        <date variable="original-date">
+          <date-part name="year" suffix="/" />
+        </date>
+      </if>
+    </choose>
     <choose>
       <if variable="issued" match="any">
         <date variable="issued">
