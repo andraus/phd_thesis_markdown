@@ -1,7 +1,7 @@
 PY=python
 PANDOC=pandoc
 
-BASEDIR=$(CURDIR)
+BASEDIR=$(PWD)
 INPUTDIR=$(BASEDIR)/src
 OUTPUTDIR=$(BASEDIR)/output
 TEMPLATEDIR=$(INPUTDIR)/templates
@@ -74,7 +74,7 @@ endif
 ifneq (,$(findstring $(blind),yes-y-on))
 	BLIND_REVIEW = "--metadata=blindreview:on"
 else
-	BLIND_REVIEW = 
+	BLIND_REVIEW =
 endif
 
 ifneq (,$(findstring $(frontmatter),yes-y-on))
@@ -92,7 +92,7 @@ else
 endif
 
 ifndef opts
-	OPTS = 
+	OPTS =
 else
 	OPTS = $(opts)
 endif
