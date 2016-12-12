@@ -34,6 +34,14 @@ A few commands to get started:
 
 ## Dependencies
 
+# `a LaTeX engine`
+Pandoc uses LaTex under the hood to render pdf files. Instructions on how to setup LaTeX are available on pandoc's [guide](http://pandoc.org/installing.html). One special note, is that if using XeLaTeX engine (which is recommended, in a macOS environment, it is necessary to install LaTeX fonts system-wide. In order to acomplish that, do the following:
+
+- install MacTex or BasicTex, accordingly to pandoc's installation guide;
+- install the specific fonts for LaTeX using either TeX Live or `tlmgr`. In this case, we're interested in `cm-unicode` package, so if using `tlmgr`, use the command `sudo tlmgr install cm-unicode`;
+- using Finder, navigate to the installed font folder. It's probably something like `/usr/local/texlive/2016basic/texmf-dist/fonts/opentype/public/cm-unicode`.
+- select all files in the font folder and install them system-wide by either right-clicking or dragging the files into Font Book app.
+
 # `pandoc-crossref`
 This project needs an extra dependency besides the default ones from TomPollard's original project, which is `pandoc-crossref`. TomPollard uses latex for cross-referencing figures, tables, etc. but I think that pandoc-crossref does a better job at that. Check the sample files in `src/body` for details.
 
