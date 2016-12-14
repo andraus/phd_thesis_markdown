@@ -1,7 +1,7 @@
 PY=python
 PANDOC=pandoc
 
-BASEDIR=$(PWD)
+BASEDIR=.
 INPUTDIR=$(BASEDIR)/src
 OUTPUTDIR=$(BASEDIR)/output
 TEMPLATEDIR=$(INPUTDIR)/templates
