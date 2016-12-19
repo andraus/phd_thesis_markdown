@@ -204,7 +204,7 @@ $endfor$
 %%
 %% ok, this block below made me regret the decision of using koma-script and scrartcl,
 %% almost to the point of rolling back to regular latex classes... Eventually I got
-%% the desired result, but maybe in the future I should abandon koma-script since 
+%% the desired result, but maybe in the future I should abandon koma-script since
 %% it's insanely obscure how to customize this stuff.
 %%
 
@@ -255,18 +255,18 @@ $endif$
 $if(blindreview)$
 $else$
   $if(author)$
-  \author{
-    $for(author)$$author.name$
+    \author{
+      $for(author)$\
+      $author.name$
       $if(author.affiliation)$
-      \thanks{$author.affiliation$}
-      $endif$$if(multiauthors)$ \and $endif$$endfor$}
-%  \author{
-%    $for(author)$$author.name$
-%    $if(author.affiliation)$
-%    $for(author.affiliation)$\\ \normalsize\textit{$author.affiliation$}\vspace{-3ex}$endfor$
-%    $endif$
-%    $if(author.email)$\\ \normalsize\texttt{$author.email$}$endif$$if(multiauthors)$ \and $endif$$endfor$
-%  }
+        \thanks{$author.affiliation$}\
+      $endif$\
+      $if(multiauthors)$ \and $endif$\
+      $endfor$\
+      $for(supervisor)$\
+        \and $supervisor.name$\
+      $endfor$\
+    }
   $endif$
 $endif$
 \date{$date$}
