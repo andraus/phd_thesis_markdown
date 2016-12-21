@@ -80,9 +80,11 @@ endif
 ifneq (,$(findstring $(frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
   DEFAULT_FM =
+	DEFAULT_TOC =
 else
   FRONTMATTER =
   DEFAULT_FM = "--metadata=default_frontmatter=y"
+	DEFAULT_TOC = "--toc"
 endif
 
 ifndef lang
@@ -128,11 +130,12 @@ BASE_PANDOC_PARAMS = $(PATHS) \
 	$(BLIND_REVIEW) \
 	$(DEFAULT_FM)
 
-
-ifneq (,$(findstring $(toc),yes-y-on))
+ifneq (,$(findstring $(toc),no-n-off))
+	PANDOC_TOC =
+else ifneq (,$(findstring $(toc),yes-y-on))
   PANDOC_TOC = "--toc"
 else
-  PANDOC_TOC =
+  PANDOC_TOC = $(DEFAULT_TOC)
 endif
 
 pdf: clean
