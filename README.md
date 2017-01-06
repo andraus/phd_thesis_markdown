@@ -1,10 +1,10 @@
-# Model for thesis or dissertations of Unicamp
+# Template for thesis, dissertations or papers in markdown / pandoc
 
 This project is a fork from https://github.com/tompollard/phd_thesis_markdown, which I'm very thankful for.
 
 It was heavily modified to incorporate Unicamp's front-matter requirements, and my own preferences.
 
-General info about this template can be found through the previously mentioned link. This README file will have specifics about my changes. 
+General info about this template can be found through the previously mentioned link. This README file will have specifics about my changes.
 
 ## Main features:
 
@@ -19,7 +19,7 @@ In general terms, you will write your text in light markdown syntax, which will 
 
 `/src`folder is divided in three base sections: `body`, `front-matter` and `end-matter`.
 
-- `body` will contain the base source text of your work. 
+- `body` will contain the base source text of your work.
 - `front-matter` will produce the initial pages of your work, including title page, face page, approval sheet, abstract, ToC, etc.
 - similarly, `end-matter` will produce the appendixes and reference section
 
@@ -64,4 +64,3 @@ brew install languagetool
 Follow up on TomPollard's original [README](TP-README.md).
 
 -- *Augusto Andraus*
-
