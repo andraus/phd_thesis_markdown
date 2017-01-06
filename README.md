@@ -1,4 +1,5 @@
 # Markdown-based template for theses, dissertations and papers with Pandoc
+[![DOI](https://zenodo.org/badge/54203604.svg)](https://zenodo.org/badge/latestdoi/54203604)
 
 This project is a fork from https://github.com/tompollard/phd_thesis_markdown, which I'm very thankful for.
 
