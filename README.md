@@ -1,4 +1,4 @@
-# Template for thesis, dissertations or papers in markdown / pandoc
+# Markdown-based template for theses, dissertations and papers with Pandoc
 
 This project is a fork from https://github.com/tompollard/phd_thesis_markdown, which I'm very thankful for.
 
