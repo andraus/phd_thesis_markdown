@@ -181,17 +181,25 @@ html:
 	mkdir "$(OUTPUTDIR)/src"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/src/figures"
 
-wc:
-	@wc -w $(BODY)
+	# @wc -w $(BODY)
 
-cc:
-	@wc -m $(BODY)
+	#@- $(foreach FILE,$(BODY), sed -E -f "style/strip-html-comments.sed" $FILE |tee "$(OUTPUTDIR)/wc/$(notdir ($FILE))")
+
+count-prepare: clean
+	@mkdir "$(OUTPUTDIR)/wc"
+	@- $(foreach FILE,$(BODY), sed -E -f "style/strip-html-comments.sed" $(FILE) > "$(OUTPUTDIR)/wc/$(notdir $(FILE))";)
+
+wc: count-prepare
+	@wc -w $(OUTPUTDIR)/wc/*
+
+cc: count-prepare
+	@wc -m $(OUTPUTDIR)/wc/*
 
 spellcheck:
 	languagetool $(OPTS) $(LANGUAGE) -r $(INPUTDIR)/body
 
 clean:
-	rm -rf $(OUTPUTDIR)
-	mkdir $(OUTPUTDIR)
+	@rm -rf $(OUTPUTDIR)
+	@mkdir $(OUTPUTDIR)
 
 .PHONY: help pdf docx html tex wc spellcheck
