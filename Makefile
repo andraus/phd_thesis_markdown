@@ -191,6 +191,7 @@ count-prepare: clean
 
 wc: count-prepare
 	@wc -w $(OUTPUTDIR)/wc/*
+	@grep targetWordCount $(INPUTDIR)/config.yaml
 
 cc: count-prepare
 	@wc -m $(OUTPUTDIR)/wc/*
