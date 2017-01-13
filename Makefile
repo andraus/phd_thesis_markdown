@@ -31,8 +31,10 @@ help:
 	@echo '   make tex                                                  generate a Latex file'
 	@echo '   make tex frontmatter=yes                                  generate a PDF file with front matter'
 	@echo ' '
-	@echo '   make wc                                                   output word count for every .md file under src/body'
-	@echo '   make cc                                                   output character count for every .md file under src/body'
+	@echo '   make wc                                                   output word count for every .md file under src/body discarding comments'
+	@echo '   make wcc                                                  output word count for every .md file under src/body'
+	@echo '   make cc                                                   output character count for every .md file under src/body discarding comments'
+	@echo '   make ccc                                                  output character count for every .md file under src/body'
 	@echo ' '
 	@echo '   make spellcheck                                           checks grammar using languagetool (autodetect language)'
 	@echo '   make spellcheck lang=en-GB opts="--disable EN_QUOTES"     checks grammar using language tool with options'
@@ -181,10 +183,6 @@ html:
 	mkdir "$(OUTPUTDIR)/src"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/src/figures"
 
-	# @wc -w $(BODY)
-
-	#@- $(foreach FILE,$(BODY), sed -E -f "style/strip-html-comments.sed" $FILE |tee "$(OUTPUTDIR)/wc/$(notdir ($FILE))")
-
 count-prepare: clean
 	@mkdir "$(OUTPUTDIR)/wc"
 	@- $(foreach FILE,$(BODY), sed -E -f "style/strip-html-comments.sed" $(FILE) > "$(OUTPUTDIR)/wc/$(notdir $(FILE))";)
@@ -193,8 +191,15 @@ wc: count-prepare
 	@wc -w $(OUTPUTDIR)/wc/*
 	@grep targetWordCount $(INPUTDIR)/config.yaml
 
+wcc:
+	@wc -w $(BODY)
+	@grep targetWordCount $(INPUTDIR)/config.yaml
+
 cc: count-prepare
 	@wc -m $(OUTPUTDIR)/wc/*
+
+ccc:
+	@wc -m $(BODY)
 
 spellcheck:
 	languagetool $(OPTS) $(LANGUAGE) -r $(INPUTDIR)/body
