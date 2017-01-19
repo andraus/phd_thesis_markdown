@@ -55,6 +55,8 @@ fontsize: 12pt
 papersize: a4
 
 indent: '2.0cm'
+referencesIndent: '2.0cm'
+noIndentsAfterSections: yes
 linestretch: 1.5
 
 ## numbers: endperiod

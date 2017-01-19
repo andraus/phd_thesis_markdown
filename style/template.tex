@@ -149,16 +149,16 @@ $if(strikeout)$
 % avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
+
 $if(indent)$
 \setlength\parindent{$indent$}
-$else$
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 $endif$
+$if(noIndentsAfterSections)$
+\usepackage{noindentafter}
+\NoIndentAfterEnv{quote}
+\NoIndentAfterEnv{enumerate}
+$endif$
+
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -303,8 +303,8 @@ $else$
 $endif$
 
 \newcommand{\configreferencesparagraph}{
-\setlength{\parindent}{-$if(indent)$$indent$$else$0cm$endif$ }
-\setlength{\leftskip}{$if(indent)$$indent$$else$0cm$endif$}
+\setlength{\parindent}{-$if(referencesIndent)$$referencesIndent$$else$0cm$endif$ }
+\setlength{\leftskip}{$if(referencesIndent)$$referencesIndent$$else$0cm$endif$}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setstretch{1}
 }
