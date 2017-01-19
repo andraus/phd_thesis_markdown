@@ -202,7 +202,7 @@ ccc:
 	@wc -m $(BODY)
 
 spellcheck:
-	languagetool $(OPTS) $(LANGUAGE) -r $(INPUTDIR)/body
+	@- $(foreach FILE,$(BODY), languagetool $(OPTS) $(LANGUAGE) $(FILE);)
 
 clean:
 	@rm -rf $(OUTPUTDIR)
