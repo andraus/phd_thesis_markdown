@@ -122,6 +122,7 @@ PATHS = $(FRONTMATTER) \
 
 
 BASE_PANDOC_PARAMS = $(PATHS) \
+	--smart \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
