@@ -97,6 +97,9 @@ $endif$
 \else
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+  $if(indentFirstParagraph)$
+    \PolyglossiaSetup{$polyglossia-lang.name$}{indentfirst=true}
+  $endif$
 $for(polyglossia-otherlangs)$
   \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
 $endfor$
@@ -152,6 +155,9 @@ $endif$
 
 $if(indent)$
 \setlength\parindent{$indent$}
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=$indent$}
+\setlist[itemize]{leftmargin=$indent$}
 $endif$
 $if(noIndentsAfterSections)$
 \usepackage{noindentafter}
