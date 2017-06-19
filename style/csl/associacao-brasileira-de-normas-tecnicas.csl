@@ -553,6 +553,9 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <text macro="title" suffix=". "/>
             <!--Titulo-->
             <text macro="container-title" suffix=". "/>
+            <!--Edicao-->
+            <text macro="place" suffix=", "/>
+            <text macro="issued" suffix=". "/>
             <!--Titulo da publicacao-->
             <text macro="genre" suffix=". "/>
             <text macro="access" suffix=". "/>
