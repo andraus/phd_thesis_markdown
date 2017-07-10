@@ -469,7 +469,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Dados complementares "pagina, volume"-->
           </group>
         </else-if>
-        <!--Conferencia-->
+        <!--Conferencia, capitulo -->
         <else-if type="chapter">
           <group>
             <text macro="author" suffix=". "/>
