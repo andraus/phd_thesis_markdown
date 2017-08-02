@@ -22,6 +22,7 @@ help:
 	@echo '   make pdf toc=yes                                          generate a PDF file with pandoc toc'
 	@echo '   make pdf frontmatter=yes bibstyle=abnt-ABNT               generate a PDF file wit front matter'
 	@echo '   make pdf no-draft=y                                       generate a PDF without draft content'
+	@echo '	  make pdf only-chapter=01-chapter'
 	@echo ' '
 	@echo '   make docx                                                 generate a Docx file'
 	@echo '   make docx-thesis                                          generate a Docx file using thesis template'
@@ -79,6 +80,12 @@ else
 	BLIND_REVIEW =
 endif
 
+ifndef only-chapter
+  ONLYCHAPTER =
+else
+  ONLYCHAPTER = $(only-chapter)
+endif
+
 ifneq (,$(findstring $(frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
   DEFAULT_FM =
@@ -109,8 +116,10 @@ endif
 
 ifneq (,$(findstring $(draft),yes-y-on))
   BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' | sort)
+else ifdef ONLYCHAPTER
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -path '*/$(ONLYCHAPTER)/*'| sort)
 else
-	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md' | sort)
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md'| sort)
 endif
 
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
