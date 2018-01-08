@@ -23,6 +23,7 @@ help:
 	@echo '   make pdf frontmatter=yes bibstyle=abnt-ABNT               generate a PDF file wit front matter'
 	@echo '   make pdf no-draft=y                                       generate a PDF without draft content'
 	@echo '	  make pdf only-chapter=01-chapter'
+	@echo '	  make pdf section-in-header=yes                            generate a PDF with section names in headers'
 	@echo ' '
 	@echo '   make docx                                                 generate a Docx file'
 	@echo '   make docx-thesis                                          generate a Docx file using thesis template'
@@ -86,6 +87,12 @@ else
   ONLYCHAPTER = $(only-chapter)
 endif
 
+ifneq (,$(findstring $(section-in-header),yes-y-on))
+  SECTIONHEADER = $(section-in-header)
+else
+  SECTIONHEADER = 
+endif
+
 ifneq (,$(findstring $(frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
   DEFAULT_FM =
@@ -133,6 +140,7 @@ PATHS = $(FRONTMATTER) \
 BASE_PANDOC_PARAMS = $(PATHS) \
 	--smart \
 	-H "$(STYLEDIR)/preamble.tex" \
+	--variable=section-in-header:$(SECTIONHEADER) \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl=$(CSL) \

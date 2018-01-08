@@ -315,6 +315,23 @@ $endif$
 \setstretch{1}
 }
 
+% Headers/ footers customizations and page numbering
+\setlength{\footheight}{24.0pt} %% satisfy koma crazy strictness
+\usepackage[automark]{scrlayer-scrpage}
+\renewcommand*{\headfont}{\footnotesize\ttfamily\slshape}
+\pagestyle{scrheadings}
+$if(section-in-header)$
+\automark[section]{section}
+\automark*[subsection]{subsection}
+\ihead{\headmark}
+$else$
+\ihead{}
+$endif$
+\ohead[\pagemark]{\pagemark}
+\chead{}
+\cfoot[]{}
+
+
 %% end custom section
 \begin{document}
 $if(default_frontmatter)$
