@@ -138,7 +138,7 @@ PATHS = $(FRONTMATTER) \
 
 
 BASE_PANDOC_PARAMS = $(PATHS) \
-	--smart \
+	--from markdown+smart \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--variable=section-in-header:$(SECTIONHEADER) \
 	--template="$(STYLEDIR)/template.tex" \
@@ -163,7 +163,7 @@ pdf: clean
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
-	--latex-engine=$(ENGINE) \
+	--pdf-engine=$(ENGINE) \
 	--verbose
 
 tex: clean
@@ -171,7 +171,7 @@ tex: clean
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.tex" \
-	--latex-engine=$(ENGINE)
+	--pdf-engine=$(ENGINE)
 
 docx: clean
 	pandoc \
