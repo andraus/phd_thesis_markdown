@@ -23,6 +23,7 @@ help:
 	@echo '   make pdf frontmatter=yes bibstyle=abnt-ABNT               generate a PDF file wit front matter'
 	@echo '   make pdf no-draft=y                                       generate a PDF without draft content'
 	@echo '	  make pdf only-chapter=01-chapter'
+	@echo '	  make pdf only-section=18'
 	@echo '	  make pdf section-in-header=yes                            generate a PDF with section names in headers'
 	@echo ' '
 	@echo '   make docx                                                 generate a Docx file'
@@ -81,16 +82,20 @@ else
 	BLIND_REVIEW =
 endif
 
-ifndef only-chapter
+ifdef only-section
+  ONLYSECTION = $(only-section)
+else ifndef only-chapter
+  ONLY_SECTION =
   ONLYCHAPTER =
 else
+  ONLY_SECTION =
   ONLYCHAPTER = $(only-chapter)
 endif
 
 ifneq (,$(findstring $(section-in-header),yes-y-on))
   SECTIONHEADER = $(section-in-header)
 else
-  SECTIONHEADER = 
+  SECTIONHEADER =
 endif
 
 ifneq (,$(findstring $(frontmatter),yes-y-on))
@@ -123,6 +128,8 @@ endif
 
 ifneq (,$(findstring $(draft),yes-y-on))
   BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' | sort)
+  else ifdef ONLYSECTION
+  	BODY = $(shell find $(INPUTDIR)/body -type f -name '$(ONLYSECTION)*.md' -not -path '*/00-draft.md'| sort)
 else ifdef ONLYCHAPTER
 	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -path '*/$(ONLYCHAPTER)/*'| sort)
 else
