@@ -184,7 +184,7 @@ docx: clean
 	pandoc \
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
-	--reference-docx style/docx_templates/${TEMPLATE}.docx \
+	--reference-doc style/docx_templates/${TEMPLATE}.docx \
 	-o "$(OUTPUTDIR)/thesis.docx"
 
 docx-thesis: clean
