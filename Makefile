@@ -34,6 +34,8 @@ help:
 	@echo '   make tex                                                  generate a Latex file'
 	@echo '   make tex frontmatter=yes                                  generate a PDF file with front matter'
 	@echo ' '
+	@echo '   make epub'
+	@echo ' '
 	@echo '   make wc                                                   output word count for every .md file under src/body discarding comments'
 	@echo '   make wcc                                                  output word count for every .md file under src/body'
 	@echo '   make cc                                                   output character count for every .md file under src/body discarding comments'
@@ -192,6 +194,19 @@ docx-thesis: clean
 
 docx-article: clean
 	$(MAKE) template=article docx
+
+epub: clean
+	pandoc \
+	$(PATHS) \
+	--from markdown+smart \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl=$(CSL) \
+	--highlight-style pygments \
+	--number-sections \
+	--filter pandoc-crossref \
+	$(BLIND_REVIEW) \
+	$(PANDOC_TOC) \
+	-o "$(OUTPUTDIR)/thesis.epub"
 
 html:
 	pandoc \
