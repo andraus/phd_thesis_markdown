@@ -150,6 +150,8 @@ do autor. Na regra da ABNT o sobrenome deve aparecer com todas as letras em caix
           <if type="book">
             <text variable="title" form="short"/>
           </if>
+          <else-if type="webpage">
+          </else-if>
           <else>
             <text variable="title" form="short" quotes="true"/>
           </else>
