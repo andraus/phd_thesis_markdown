@@ -173,6 +173,18 @@ $if(noIndentsAfterSections)$
 \NoIndentAfterEnv{enumerate}
 $endif$
 
+%% long quote formatting
+$if(quotesIndent)$
+\renewenvironment{quote}
+  {\small\singlespacing\list{}{
+    $if(quotesIndent.right)$\rightmargin=$quotesIndent.right$$else$\rightmargin=0.0cm$endif$
+    $if(quotesIndent.left)$\leftmargin=$quotesIndent.left$$else$\leftmargin=0.0cm$endif$
+  }%
+   \item\relax}
+  {\endlist}
+$endif$
+
+
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}

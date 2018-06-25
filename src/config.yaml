@@ -56,6 +56,9 @@ papersize: a4
 
 indent: '2.0cm'
 referencesIndent: '2.0cm'
+quotesIndent:
+    left: '4.0cm'
+    right: '0.0cm'
 indentFirstParagraph: yes
 noIndentsAfterSections: no
 linestretch: '1.5'
