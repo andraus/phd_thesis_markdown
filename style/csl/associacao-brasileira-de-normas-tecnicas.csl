@@ -419,6 +419,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
     <sort>
       <key macro="author"/>
       <!--Puxa o autor primeiro-->
+      <key variable="original-date"/>
       <key variable="issued"/>
       <!--Depois o ano-->
     </sort>
