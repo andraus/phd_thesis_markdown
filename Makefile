@@ -100,6 +100,7 @@ else
   SECTIONHEADER =
 endif
 
+frontmatter=y
 ifneq (,$(findstring $(frontmatter),yes-y-on))
   FRONTMATTER = "$(INPUTDIR)/front-matter"/*.md
   DEFAULT_FM =
@@ -145,8 +146,13 @@ PATHS = $(FRONTMATTER) \
 	$(ENDMATTER) \
 	$(INPUTDIR)/config.yaml
 
+NO_FM_PATHS = \
+	$(BODY) \
+	$(ENDMATTER) \
+	$(INPUTDIR)/config.yaml
 
-BASE_PANDOC_PARAMS = $(PATHS) \
+
+BASE_PANDOC_PARAMS = \
 	--from markdown+smart \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--variable=section-in-header:$(SECTIONHEADER) \
@@ -169,6 +175,7 @@ endif
 
 pdf: clean
 	pandoc \
+	$(PATHS) \
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
@@ -177,6 +184,7 @@ pdf: clean
 
 tex: clean
 	pandoc \
+	$(PATHS) \
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.tex" \
@@ -184,6 +192,7 @@ tex: clean
 
 docx: clean
 	pandoc \
+	$(NO_FM_PATHS) \
 	$(BASE_PANDOC_PARAMS) \
 	$(PANDOC_TOC) \
 	--reference-doc style/docx_templates/${TEMPLATE}.docx \
@@ -197,7 +206,7 @@ docx-article: clean
 
 epub: clean
 	pandoc \
-	$(PATHS) \
+	$(NO_FM_PATHS) \
 	--from markdown+smart \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl=$(CSL) \
@@ -208,20 +217,6 @@ epub: clean
 	$(PANDOC_TOC) \
 	-o "$(OUTPUTDIR)/thesis.epub"
 
-html:
-	pandoc \
-	$(BASE_PANDOC_PARAMS) \
-	-o "$(OUTPUTDIR)/thesis.html" \
-	--standalone \
-	--template="$(STYLEDIR)/template.html" \
-	--bibliography="$(BIBFILE)" \
-	--csl="$(STYLEDIR)/ref_format.csl" \
-	--include-in-header="$(STYLEDIR)/style.css" \
-	--toc \
-	--number-sections
-	rm -rf "$(OUTPUTDIR)/src"
-	mkdir "$(OUTPUTDIR)/src"
-	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/src/figures"
 
 count-prepare: clean
 	@mkdir "$(OUTPUTDIR)/wc"
