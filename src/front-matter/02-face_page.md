@@ -8,10 +8,14 @@ Nos casos de teses defendidas em cotutela, logo abaixo do nível e da área de
 \thispagestyle{empty}
 \begin{center}
     \large{\textbf{\textsc{\metaauthor}}}%
+\end{center}
     \\
     \bigskip
-    \large{\textbf{\textsc{\metatitle{} \metasubtitle{}}}}%
+\begin{addmargin}{0.5cm}
+\begin{center}
+    \large{\textbf{\textsc{\metatitle{} \\ \metasubtitle{}}}}%
 \end{center}
+\end{addmargin}
 \bigskip
 \begin{center}
     \begin{minipage}[t]{0.5\textwidth}

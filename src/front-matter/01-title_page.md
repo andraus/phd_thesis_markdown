@@ -5,25 +5,29 @@ Deverá conter os seguintes dados: 1) Universidade; 2) Unidade de Defesa; 3) Au
 \thispagestyle{empty}
 \noindent{
 \universityheading
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
 \begin{center}
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
     \large{\textbf{\textsc{\metaauthor}}}\\
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \large{\textbf{\textsc{\metatitle{} \metasubtitle{}}}}\\
 \end{center}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\begin{addmargin}{0.5cm}
+\begin{center}
+    \large{\textbf{\textsc{\metatitle{} \\ \metasubtitle{}}}}\\
+\end{center}
+\end{addmargin}
 }
 \vspace*{\fill}
 \begin{center}
