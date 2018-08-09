@@ -66,6 +66,11 @@
 \newenvironment{abstract-flushleft}{%
 }
 
+%% new {nohyphenate} environment
+\newenvironment{nohyphenate}
+ {\par\hyphenpenalty=10000 \exhyphenpenalty 10000 }
+ {\par}
+
 %%
 %% end redefinition of maketitle and abstract
 %%
