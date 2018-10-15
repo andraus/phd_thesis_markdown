@@ -136,7 +136,7 @@ ifneq (,$(findstring $(draft),yes-y-on))
 else ifdef ONLYCHAPTER
 	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -path '*/$(ONLYCHAPTER)/*'| sort)
 else
-	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/00-draft.md'| sort)
+	BODY = $(shell find $(INPUTDIR)/body -type f -name '*.md' -not -path '*/*-draft.md'| sort)
 endif
 
 ENDMATTER = "$(INPUTDIR)/end-matter"/*.md
