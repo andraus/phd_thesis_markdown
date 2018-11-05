@@ -4,7 +4,7 @@ Item opcional. É um texto em que o autor manifesta agradecimento às pessoas 
 -->
 <!-- Do not use headings in front-matter section will be processed into TOC, as it will be processed into TOC -->
 \newpage
-\thispagestyle{empty}
+\pagestyle{empty}
 
 \noindent
 {\section*{Acknowledgements}}

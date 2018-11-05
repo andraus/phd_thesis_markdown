@@ -3,3 +3,4 @@
 \tableofcontents
 \thispagestyle{empty}
 \newpage
+\pagestyle{scrheadings}
